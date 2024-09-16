@@ -3,6 +3,7 @@ package org.example;
 import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import javax.swing.JFileChooser;
 
 public class File1 {
@@ -18,7 +19,7 @@ public class File1 {
                 System.out.println("Path: " + f.getAbsolutePath());
                 System.out.println("Name: " + f.getName());
                 System.out.println("Size: " + f.length() + " bytes");
-                System.out.println("Last Mod: " + f.lastModified());
+                System.out.println("Last Mod: " + new Date(f.lastModified()));
                 System.out.println("Is a directory? " + f.isDirectory());
             } else {
                 System.out.println("The selected file does not exist.");
