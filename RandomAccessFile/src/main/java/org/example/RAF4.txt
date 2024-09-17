@@ -1,0 +1,8 @@
+ Ejercicio 4. Escritura y lectura de archivos con RandomAccessFile
+
+Escribe un programa que escriba y lea datos en un archivo usando la clase RandomAccessFile.
+
+    Crea un archivo de texto llamado prueba.txt en el directorio actual de tu proyecto, sólo si no existe.
+    Escribe un programa que cree un objeto RandomAccessFile para el archivo prueba.txt y escriba un mensaje.
+    Lee el mensaje y muéstralo por consola.
+

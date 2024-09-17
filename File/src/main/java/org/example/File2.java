@@ -19,11 +19,12 @@ public class File2 {
             if (fileList != null) {
                 System.out.println("Files in the selected directory:");
 //                System.out.println(Arrays.toString(fileList));
-                int totalSize= 0;
+                long totalSize= 0;
                 for (int i = 0; i < fileList.length; i++) {
-                    System.out.println(fileList[i]);
-
+                    System.out.println(fileList[i].getName() + " (" + fileList[i].length() + " bytes)");
+                    totalSize+= fileList[i].length();
                 }
+                System.out.println("The total size of the files is " + totalSize + " bytes");
             } else {
                 System.out.println("The selected directory is empty or could not be read.");
             }
