@@ -16,8 +16,10 @@ public class File3 {
         System.out.println(stringBuilder.toString());
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Waiting for input...");
         int choice = scanner.nextInt();
         scanner.nextLine();
+        System.out.println("Option chosen: " + choice);
 
         switch (choice) {
             case 1:
