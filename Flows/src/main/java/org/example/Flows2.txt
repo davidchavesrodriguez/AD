@@ -1,0 +1,3 @@
+ Ejercicio 2. Serialización
+
+Crea una clase Persona con los atributos nombre y edad. Implementa la interface Serializable y crea un programa que serialice y deserialice un objeto de tipo Persona.

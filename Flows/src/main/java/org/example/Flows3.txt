@@ -1,0 +1,4 @@
+Ejercicio 3. Serialización de colecciones
+
+Crea una clase ColeccionPersonas que contenga una colección de objetos de tipo Persona.
+Implementa la interface Serializable y crea un programa que serialice y deserialice un objeto de tipo ColeccionPersonas.

@@ -1,0 +1,5 @@
+Ejercicio 1. Copia de archivos
+
+Modifica el programa CopiaArchivos para que copie el archivo otto.txt en un archivo nohaycole.txt en la carpeta src/main/resources de tu proyecto.
+
+Además, haz que el cierre de archivos se realice por medio de try-with-resources.
