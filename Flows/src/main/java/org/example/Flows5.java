@@ -2,9 +2,11 @@ package org.example;
 
 import java.io.*;
 import java.net.*;
+import java.util.Map;
+import java.util.List;
 import java.util.Scanner;
 
-public class Flows4 {
+public class Flows5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -19,8 +21,19 @@ public class Flows4 {
             String contentType = connection.getContentType();
             int contentLength = connection.getContentLength();
 
+            if (contentLength == -1) {
+                System.out.println("Content-Length not available.");
+            } else {
+                System.out.println("Content-Length: " + contentLength + " bytes");
+            }
+
             System.out.println("Content-Type: " + contentType);
-            System.out.println("Content-Length: " + contentLength + " bytes");
+
+            System.out.println("HTTP Headers:");
+            Map<String, List<String>> headers = connection.getHeaderFields();
+            for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
 
             String extension = getExtensionFromContentType(contentType);
             String fileName = "src/main/resources/page" + extension;
@@ -62,5 +75,4 @@ public class Flows4 {
         if (contentType.contains("application/javascript")) return ".js";
         return ".dat";
     }
-
 }
