@@ -1,30 +1,35 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
+import java.util.Scanner;
 
 public class Flows4 {
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) {
         try {
-            URI uri = new URI("https://www.rcdeportivo.es/gl");
+            System.out.println("Which page do you want to download?");
+            Scanner sc = new Scanner(System.in);
+            URI uri = new URI(sc.nextLine());
 
             try (InputStream inputStream = uri.toURL().openStream();
-                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);) {
-                while (inputStreamReader.read() != -1) {
-                    System.out.println(inputStreamReader.read());
+                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                 FileOutputStream fileOutputStream = new FileOutputStream("src/main/resources/page.txt");
+                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream)) {
+
+                int ch;
+                while ((ch = inputStreamReader.read()) != -1) {
+                    outputStreamWriter.write(ch);
                 }
+
+                System.out.println("Page downloaded and saved successfully!");
+
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("An error occurred during download or file writing", e);
             }
 
-        } catch (URISyntaxException | RuntimeException e) {
-            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException("Invalid URI", e);
         }
     }
 }
