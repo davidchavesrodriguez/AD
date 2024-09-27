@@ -1,73 +1,89 @@
 package org.example;
 
 import java.io.*;
+import java.util.Date;
 
 public class EstatisticaFile {
-    private File file;
-    private int lines;
-    private int letters;
-    private int whitespaces;
+    private File arquivo;
+    private int linhas;
+    private int letras;
+    private int espazos;
 
-    public EstatisticaFile(File file) {
-        this.file = file;
+    public EstatisticaFile(String nomeArquivo) {
+        this.arquivo = new File(nomeArquivo);
+        this.linhas = 0;
+        this.letras = 0;
+        this.espazos = 0;
+        calcularEstatisticas();
     }
 
-    public File getFile() {
-        return file;
+    public File getArquivo() {
+        return arquivo;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public int getLinhas() {
+        return linhas;
     }
 
-    public int getLines() {
-        return lines;
+    public int getLetras() {
+        return letras;
     }
 
-    public void setLines(int lines) {
-        this.lines = lines;
+    public int getEspazos() {
+        return espazos;
     }
 
-    public int getLetters() {
-        return letters;
+    public boolean existe() {
+        return arquivo.exists();
     }
 
-    public void setLetters(int letters) {
-        this.letters = letters;
+    public Date ultimaModificacion() {
+        return new Date(arquivo.lastModified());
     }
 
-    public int getWhitespaces() {
-        return whitespaces;
+    public String getRuta() {
+        return arquivo.getPath();
     }
 
-    public void setWhitespaces(int whitespaces) {
-        this.whitespaces = whitespaces;
-    }
+    private void calcularEstatisticas() {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(arquivo))) {
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                linhas++;
 
-    public boolean exists() {
-        return file.exists();
-    }
-
-    public long lastModified() {
-        return file.lastModified();
-    }
-
-    public String getPath() {
-        return file.getPath();
-    }
-
-    public void calculateStats() {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String lineCounter;
-            while ((lineCounter= bufferedReader.readLine())!=null){
-                lines++; // count lines
+                for (char c : linha.toCharArray()) {
+                    if (Character.isLetter(c)) {
+                        letras++;
+                    } else if (Character.isSpaceChar(c)) {
+                        espazos++;
+                    }
+                }
             }
-            while ()
-        } catch (
-                IOException e) {
-            throw new
+        } catch (IOException e) {
+            throw new RuntimeException("Error lendo o arquivo: " + e.getMessage());
+        }
+    }
 
-                    RuntimeException(e);
+    public long getLongitud() {
+        return arquivo.length();
+    }
+
+    public void mostrarEstadisticas() {
+        System.out.println("Ruta: " + getRuta());
+        System.out.println("Número de liñas: " + getLinhas());
+        System.out.println("Número de letras: " + getLetras());
+        System.out.println("Número de espazos: " + getEspazos());
+        System.out.println("Última modificación: " + ultimaModificacion());
+        System.out.println("Lonxitude do arquivo: " + getLongitud() + " bytes");
+    }
+
+    public static void main(String[] args) {
+        EstatisticaFile estatisticas = new EstatisticaFile("src/main/resources/ex2.txt");
+
+        if (estatisticas.existe()) {
+            estatisticas.mostrarEstadisticas();
+        } else {
+            System.out.println("Non existe o arquivo");
         }
     }
 }

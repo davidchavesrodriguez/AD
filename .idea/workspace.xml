@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4ba2065-a6a6-4c0b-8c0f-be81cec8bfcb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Flows/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/material_theme_project_new.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/otto.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Flows5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/java/org/example/PersonCollection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/resources/nohaycole.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/resources/page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/resources/page.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/resources/students.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flows/src/main/resources/studentsCollection.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/sanclemente.local/a22davidcr/Escritorio/AD",
+    "last_opened_file_path": "/home/sanclemente.local/a22davidcr/Escritorio/AD/BoletinUD1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
