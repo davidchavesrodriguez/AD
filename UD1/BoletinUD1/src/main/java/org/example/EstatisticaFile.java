@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.Date;
 
+// EX 6<z
 public class EstatisticaFile {
     private File arquivo;
     private int linhas;
@@ -78,7 +79,7 @@ public class EstatisticaFile {
     }
 
     public static void main(String[] args) {
-        EstatisticaFile estatisticas = new EstatisticaFile("src/main/resources/ex2.txt");
+        EstatisticaFile estatisticas = new EstatisticaFile("src/main/resources/ex6.txt");
 
         if (estatisticas.existe()) {
             estatisticas.mostrarEstadisticas();

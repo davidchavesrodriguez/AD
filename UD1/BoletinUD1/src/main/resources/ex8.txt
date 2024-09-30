@@ -1,0 +1,19 @@
+Ejercicio 8. Editor de texto
+Haz un programa que recoja el nombre de un fichero y muestre su contenido si existe o cree un nuevo en el que puedas escribir si no existe. Ejemplo: java Editor proba.txt
+
+Para tal fin, además del programa, Editor.java, crea la clase Documento con las siguientes características:
+
+    Propiedades: arquivo (de tipo File)
+    Constructores: recoge el nombre del archivo y crea el objeto archivo. Otro que recoja un Objeto de tipo File.
+    Métodos:
+    exists(): devuelve verdadero cuando el fichero no es nulo y existe.
+    readFile(): devuelve una cadena con el contenido del archivo, si existe, obviamente. Emplea StringBuilder.
+    readFileNIO(): igual al anterior, pero empleado Path y el método readString de Files.
+    writeFromString(…): recoge una cadena y la escribe en fichero, al final, empleando BufferedWriter.
+    writeFromStringPrintWriter(…): recoge una cadena y la escribe al final, empleando PrintWriter.
+    writeFromInputStream(): rue recoge un flujo de tipo InputStream (para, por ejemplo, System.in) y escribe lo recogido por el flujo en el fichero.
+    writeFromKeyword(): escribe en el archivo lo que se escriba en el teclado.
+    . getFile(): devuelve el objeto archivo.
+    toString(): devuelve la ruta absoluta/canónica al archivo.
+
+AppEditor.java recoge el nombre por línea de órdenes. Si existe, muestra el contenido (llama al método readFile()) si no existe pide que introduzcas por teclado. Para acabar de introducir datos debe escribir una línea que sólo contiene un “.”.
