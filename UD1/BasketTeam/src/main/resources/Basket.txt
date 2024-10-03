@@ -1,0 +1,25 @@
+Ejercicio 11. Gestión de equipos de baloncesto
+
+Haga un programa para la gestión y clasificación de la liga de baloncesto. La clasificación de los equipos se guarda en un archivo llamado clasificacion.dat.
+
+a) Declare una clase Equipo con los atributos mínimos necesarios: nombre, victorias, derrotas, puntosAfavor a favor, puntosEnContra puntos en contra. Puedes añadir los atributos que te interesen, como ciudad, etc. Tienes libertad para hacerlo, pues, además, te puede servir como práctica.
+
+Tenga en cuenta que los atributos puntos, partidos jugados y diferencia de puntos son atributos derivados que se calculan a partir de los partidos ganados, perdidos, puntos a favor y puntos en contra.
+
+Cree los métodos que considere oportunos, pero tome decisiones sobre los métodos get/set necesarios. Así, haz un método que devuelva los puntos, getPuntos, un método getPartidosJugados que devuelva el número de partidos jugados y un método getDiferenciaDePuntos, que devuelva la diferencia de puntos. Obviamente, por ser atributos/propiedades derivados/as, no tienen sentido los métodos de tipo “set” para ellos.
+
+Debe tener, al menos, un constructor para la clase equipo que recoja el nombre y otro que recoja todas las propiedades. No debe existir un constructor por defecto (en la práctica sí si debería tener).
+
+Para poder ordenar los equipos debe implantar la interface Comparable<Equipo>. Piense que debe ordenar por puntos y, a igualdad de puntos, por diferencia de puntos encestados. Además, para poder guardar los objetos (writeObject de ObjectOutputStream) y/o recuperarlos (readObject de ObjectInputStream) debe implantar la interface Serializable. Lo mismo con la clase siguiente, Clasificacion, que debe implementar la interface Serializable.
+
+Sobrescribe el método equals para que se considere que dos Equipos son iguales si tienen el mismo nombre (sin distinguir mayúsculas de minúsculas). Haz lo mismo con hashCode.
+
+b) Declare una clase Clasificacion, con un atributo equipos de tipo ArrayList de Equipo, aunque debe existir un constructor que permita crear una clasificación con los equipos que se desee. Defina los métodos para añadir equipos a la clasificación, addEquipo, así como los métodos para eliminar equipo, removeEquipo, y sobrescriba el método toString que devuelva la cadena de la clasificación (StringBuilder)
+
+Crea los métodos estáticos: **loadClasificacion**, que cargue la clasificación del archivo y la devuelva, y el método **saveClasificacion**, que guarde la clasificación en el archivo.
+
+Una vez cargados se podría emplear un objeto de tipo TreeSet para que ordene correctamente la clasificación (lo veremos en unidades posteriores)
+
+c) El programa debe tener un menú con las siguientes opciones: a. añadir equipo (pide el nombre del equipo y los valores de los atributos no derivados, añadiendo el equipo a la clasificación) b. mostrar clasificación (muestra la clasificación ordenada de los equipos que están cargados en memoria) c. guardar clasificación (que guarda la clasificación en el archivo clasificacion.dat) d. cargar clasificación (que carga la clasificación del archivo clasificacion.dat) e. salir (sale del programa, debiendo preguntar antes).
+
+Utilice la clase Scanner para leer de teclado.
