@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AppBasket {
     private static Classification classification = new Classification();
-    private static final String FILE_NAME = "classification.dat";
+    private static final String FILE_NAME = "src/main/resources/classification.dat";
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -55,7 +55,7 @@ public class AppBasket {
         int pointsFor = sc.nextInt();
         System.out.print("Points Against: ");
         int pointsAgainst = sc.nextInt();
-        sc.nextLine(); // Clear buffer
+        sc.nextLine();
 
         Team team = new Team(name, wins, losses, pointsFor, pointsAgainst);
         classification.addTeam(team);

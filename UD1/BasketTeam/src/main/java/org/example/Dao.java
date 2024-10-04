@@ -1,5 +1,7 @@
 package org.example;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,9 +15,9 @@ import java.util.List;
  */
 public interface Dao <T, K> {
 
-    T get(K id);
-    List<T> getAll();
-    boolean save(T obxecto);
+    T get(K id) throws IOException;
+    List<T> getAll() throws IOException;
+    boolean save(T obxecto) throws IOException;
     void delete(T obx);
     void update(T obx);
 
