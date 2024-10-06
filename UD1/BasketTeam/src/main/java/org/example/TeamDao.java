@@ -1,59 +1,44 @@
 package org.example;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
-public class TeamDao implements Dao<Team, String> {
-    private Path path;
+public class TeamDao implements Dao<Team> {
+    private List<Team> teams;
 
-    public TeamDao(Path path) {
-        this.path = path;
+    public TeamDao() {
+        teams = new ArrayList<>();
     }
 
     @Override
-    public Team get(String id) throws IOException {
-        List<Team> teams = getAll();
-        for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(id)) {
-                return team;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Team> getAll() throws IOException {
-        if (!Files.exists(path)) {
-            return List.of();
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path.toFile()))) {
-                return (List<Team>) ois.readObject();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                return List.of();
-            }
+    public void add(Team team) {
+        if (!teams.contains(team)) {
+            teams.add(team);
         }
     }
 
+    @Override
+    public void remove(Team team) {
+        teams.remove(team);
+    }
 
     @Override
-    public boolean save(Team obxecto) throws IOException {
-        List<Team> teams = getAll();
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path.toFile()))) {
+    public List<Team> getAll() {
+        return new ArrayList<>(teams);
+    }
+
+    @Override
+    public void save(String filename) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(teams);
         }
-        return true;
     }
 
     @Override
-    public void delete(Team obx) {
-
-    }
-
-    @Override
-    public void update(Team obx) {
-
+    public void load(String filename) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+            teams = (List<Team>) ois.readObject();
+        }
     }
 }
-

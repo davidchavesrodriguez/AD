@@ -1,24 +1,12 @@
 package org.example;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Dao genérico.
- * Esta clase define los métodos que deben implementar las clases que quieran
- * ser un Dao.
- * La T es el tipo de objeto que se va a manejar y la K es el tipo de clave
- * primaria.
- * @param <T>
- * @param <K>
- */
-public interface Dao <T, K> {
-
-    T get(K id) throws IOException;
-    List<T> getAll() throws IOException;
-    boolean save(T obxecto) throws IOException;
-    void delete(T obx);
-    void update(T obx);
-
+public interface Dao<T> {
+    void add(T t);
+    void remove(T t);
+    List<T> getAll();
+    void save(String filename) throws IOException;
+    void load(String filename) throws IOException, ClassNotFoundException;
 }

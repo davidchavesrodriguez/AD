@@ -4,71 +4,68 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class AppBasket {
-    private static Classification classification = new Classification();
-    private static final String FILE_NAME = "src/main/resources/classification.dat";
+    private static TeamDao teamDao = new TeamDao();
+    private static Classification classification = new Classification(teamDao);
+    private static final String FILENAME = "classification.dat";
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int option;
-
-        do {
-            System.out.println("Basketball League Management Menu");
-            System.out.println("1. Add team");
-            System.out.println("2. Show classification");
-            System.out.println("3. Save classification");
-            System.out.println("4. Load classification");
-            System.out.println("5. Exit");
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Menu:");
+            System.out.println("a. Add Team");
+            System.out.println("b. Show Classification");
+            System.out.println("c. Save Classification");
+            System.out.println("d. Load Classification");
+            System.out.println("e. Exit");
             System.out.print("Choose an option: ");
-            option = sc.nextInt();
-            sc.nextLine();
+            String option = scanner.nextLine();
 
             switch (option) {
-                case 1:
-                    addTeam(sc);
+                case "a":
+                    addTeam();
                     break;
-                case 2:
+                case "b":
                     showClassification();
                     break;
-                case 3:
+                case "c":
                     saveClassification();
                     break;
-                case 4:
+                case "d":
                     loadClassification();
                     break;
-                case 5:
-                    System.out.println("Exiting the program...");
+                case "e":
+                    exit = true;
                     break;
                 default:
-                    System.out.println("Invalid option.");
+                    System.out.println("Invalid option");
             }
-        } while (option != 5);
+        }
     }
 
-    private static void addTeam(Scanner sc) {
+    private static void addTeam() {
         System.out.print("Enter team name: ");
-        String name = sc.nextLine();
-        System.out.print("Wins: ");
-        int wins = sc.nextInt();
-        System.out.print("Losses: ");
-        int losses = sc.nextInt();
-        System.out.print("Points For: ");
-        int pointsFor = sc.nextInt();
-        System.out.print("Points Against: ");
-        int pointsAgainst = sc.nextInt();
-        sc.nextLine();
+        String name = scanner.nextLine();
+        System.out.print("Enter wins: ");
+        int wins = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter losses: ");
+        int losses = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter points for: ");
+        int pointsFor = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter points against: ");
+        int pointsAgainst = Integer.parseInt(scanner.nextLine());
 
         Team team = new Team(name, wins, losses, pointsFor, pointsAgainst);
         classification.addTeam(team);
     }
 
     private static void showClassification() {
-        System.out.println("Current Classification:");
         System.out.println(classification);
     }
 
     private static void saveClassification() {
         try {
-            Classification.saveClassification(classification, FILE_NAME);
+            classification.saveClassification(FILENAME);
             System.out.println("Classification saved successfully.");
         } catch (IOException e) {
             System.out.println("Error saving classification: " + e.getMessage());
@@ -77,7 +74,7 @@ public class AppBasket {
 
     private static void loadClassification() {
         try {
-            classification = Classification.loadClassification(FILE_NAME);
+            classification.loadClassification(FILENAME);
             System.out.println("Classification loaded successfully.");
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error loading classification: " + e.getMessage());
