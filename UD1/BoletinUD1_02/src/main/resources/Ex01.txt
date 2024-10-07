@@ -1,0 +1,11 @@
+Ejercicio 1. Path y Paths. Files.
+Realiza los siguientes programas Java empleando las clases Path, Paths y Files
+de Java NIO:
+a) Escribe un programa Java que compruebe si una ruta de archivo es absoluta o
+relativa y si existe.
+b) Escribe un programa Java que copie un archivo en otro, sustituyéndolo si existe, y
+lo mueva un archivo de una ubicación en otra, empleando Files.
+c) Crea un programa Java que recoja una ruta de archivo como entrada del usuario
+(con JFileChooser) y muestre el nombre del archivo y su extensión en una ventana
+emergente (JOptionPane). Crea un Path y recupera la posición a partir del nombre
+del archivo (emplea el método lastIndexOf).
