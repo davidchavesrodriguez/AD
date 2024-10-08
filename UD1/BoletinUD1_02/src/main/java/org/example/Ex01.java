@@ -13,7 +13,7 @@ public class Ex01 {
     public static void main(String[] args) throws IOException {
 //    a) Escribe un programa Java que compruebe si una ruta de archivo es absoluta o
 //  relativa y si existe.
-/*        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Give me a path to scan: ");
         Path path = Paths.get(scanner.nextLine());
 
@@ -27,12 +27,11 @@ public class Ex01 {
             System.out.println("The path exists.");
         } else {
             System.out.println("The path does not exist.");
-        }*/
+        }
 
 
 //    b) Escribe un programa Java que copie un archivo en otro, sustituyéndolo si existe, y
 //  lo mueva un archivo de una ubicación en otra, empleando Files.
-/*
         System.out.println("Which file do you want to copy?");
         Path sourceFile = Paths.get(scanner.nextLine());
 
@@ -40,7 +39,6 @@ public class Ex01 {
         Path targetFile = Paths.get(scanner.nextLine() + "/" + sourceFile.getFileName());
         System.out.println(targetFile);
         Files.copy(sourceFile, targetFile, StandardCopyOption.REPLACE_EXISTING);
-*/
 
 
 //    c) Crea un programa Java que recoja una ruta de archivo como entrada del usuario
@@ -48,13 +46,26 @@ public class Ex01 {
 //  emergente (JOptionPane). Crea un Path y recupera la posición a partir del nombre
 //  del archivo (emplea el método lastIndexOf).
 
-        JFileChooser jFileChooser= new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("/home/sanclemente.local/a22davidcr/Escritorio/AD/UD1/BoletinUD1_02"));
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(
+                new File("/home/sanclemente.local/a22davidcr/Escritorio/AD/UD1/BoletinUD1_02"));
         jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        jFileChooser.showOpenDialog(null);
+        int result = jFileChooser.showOpenDialog(null);
 
-        JOptionPane jOptionPane= new JOptionPane();
-        jOptionPane.setMessage(jFileChooser.getSelectedFile());
-        jOptionPane.setVisible(true);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            String fileName = selectedFile.getName();
+            String fileExtension = "";
+
+            int dotIndex = fileName.lastIndexOf('.');
+            if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
+                fileExtension = fileName.substring(dotIndex + 1);
+            }
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "File Name: " + fileName + "\nFile Extension: " + fileExtension,
+                    "File Information", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }

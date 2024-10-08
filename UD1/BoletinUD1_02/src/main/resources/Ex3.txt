@@ -1,0 +1,7 @@
+Ejercicio 3. Contenido de un directorio con list.
+a) Escribid un programa en Java que, empleando las clases de Java NIO 2, liste los
+archivos de un directorio por medio del método list(). Debe mostrar sólo los
+archivos fuente Java, no los directorios que contiene. Recuerda el uso de filtros en
+Stream y de forEach.
+b) Haz el mismo ejercicio con el método list() de File y compara el tiempo de
+ejecución en cada caso.

@@ -1,0 +1,4 @@
+Ejercicio 4. Listar y copiar archivos fuente java de un directorio a otro.
+Escribid un programa en Java que, empleando las clases de Java NIO 2, liste los
+contenidos copiando cada archivo a una ruta destino. Pidiendo la extensión del archivo
+a copiar. Resuelve previamente el fichero origen.
