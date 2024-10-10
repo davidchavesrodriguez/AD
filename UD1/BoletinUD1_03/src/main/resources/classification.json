@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Real Madrid",
+    "playedGames": 4,
+    "wins": 4,
+    "losses": 0,
+    "pointsFor": 374,
+    "pointsAgainst": 311,
+    "pointsDifference": 63
+  },
+  {
+    "name": "Baskonia",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 346,
+    "pointsAgainst": 320,
+    "pointsDifference": 26
+  },
+  {
+    "name": "Bàsquet Girona",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 353,
+    "pointsAgainst": 333,
+    "pointsDifference": 20
+  },
+  {
+    "name": "UCAM Murcia",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 340,
+    "pointsAgainst": 322,
+    "pointsDifference": 18
+  },
+  {
+    "name": "Valencia Basket",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 346,
+    "pointsAgainst": 330,
+    "pointsDifference": 16
+  },
+  {
+    "name": "Barça",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 349,
+    "pointsAgainst": 335,
+    "pointsDifference": 14
+  },
+  {
+    "name": "Surne Bilbao Basket",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 322,
+    "pointsAgainst": 310,
+    "pointsDifference": 12
+  },
+  {
+    "name": "Joventut Badalona",
+    "playedGames": 4,
+    "wins": 3,
+    "losses": 1,
+    "pointsFor": 329,
+    "pointsAgainst": 319,
+    "pointsDifference": 10
+  },
+  {
+    "name": "Monbus Obradoiro",
+    "playedGames": 4,
+    "wins": 2,
+    "losses": 2,
+    "pointsFor": 320,
+    "pointsAgainst": 299,
+    "pointsDifference": 21
+  },
+  {
+    "name": "BAXI Manresa",
+    "playedGames": 4,
+    "wins": 2,
+    "losses": 2,
+    "pointsFor": 350,
+    "pointsAgainst": 351,
+    "pointsDifference": -1
+  },
+  {
+    "name": "Dreamland Gran Canaria",
+    "playedGames": 4,
+    "wins": 2,
+    "losses": 2,
+    "pointsFor": 312,
+    "pointsAgainst": 338,
+    "pointsDifference": -26
+  },
+  {
+    "name": "Unicaja",
+    "playedGames": 4,
+    "wins": 1,
+    "losses": 3,
+    "pointsFor": 335,
+    "pointsAgainst": 333,
+    "pointsDifference": 2
+  },
+  {
+    "name": "Río Breogán",
+    "playedGames": 4,
+    "wins": 1,
+    "losses": 3,
+    "pointsFor": 314,
+    "pointsAgainst": 328,
+    "pointsDifference": -14
+  },
+  {
+    "name": "MoraBanc Andorra",
+    "playedGames": 4,
+    "wins": 1,
+    "losses": 3,
+    "pointsFor": 310,
+    "pointsAgainst": 329,
+    "pointsDifference": -19
+  },
+  {
+    "name": "Lenovo Tenerife",
+    "playedGames": 4,
+    "wins": 1,
+    "losses": 3,
+    "pointsFor": 317,
+    "pointsAgainst": 353,
+    "pointsDifference": -36
+  },
+  {
+    "name": "Casademont Zaragoza",
+    "playedGames": 4,
+    "wins": 1,
+    "losses": 3,
+    "pointsFor": 317,
+    "pointsAgainst": 354,
+    "pointsDifference": -37
+  },
+  {
+    "name": "Coviran Granada",
+    "playedGames": 4,
+    "wins": 0,
+    "losses": 4,
+    "pointsFor": 353,
+    "pointsAgainst": 382,
+    "pointsDifference": -29
+  },
+  {
+    "name": "Zunder Palencia",
+    "playedGames": 4,
+    "wins": 0,
+    "losses": 4,
+    "pointsFor": 290,
+    "pointsAgainst": 330,
+    "pointsDifference": -40
+  }
+]
