@@ -72,16 +72,13 @@ public class Clasificacion implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder cadena = new StringBuilder(CABECERA);
+        StringBuilder cadena = new StringBuilder();
+        cadena.append("Clasificación de: ").append(competicion).append(System.lineSeparator());        // Con programación funcional
+        cadena.append(CABECERA);
 
-        // Con programación funcional
         equipos.forEach(e -> {
             cadena.append(e).append(System.lineSeparator());
         });
-
-//        for (Equipo e : equipos) {
-//            cadena.append(e).append(System.lineSeparator());
-//        }
 
         cadena.append(CABECERA);
         return cadena.toString();

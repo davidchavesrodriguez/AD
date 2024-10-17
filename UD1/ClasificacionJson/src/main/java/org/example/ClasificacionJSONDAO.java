@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ClasificacionJSONDAO implements Dao<Clasificacion, String> {
 
-    public static final Path DEFAULT_PATH = Paths.get("e:\\data\\");
+    public static final Path DEFAULT_PATH = Paths.get("src/main/resources");
     public static final Gson gson = new Gson();
 
 
@@ -100,7 +100,7 @@ public class ClasificacionJSONDAO implements Dao<Clasificacion, String> {
         }
     }
 
-    
+
     @Override
     public boolean deleteAll() {
         try {
