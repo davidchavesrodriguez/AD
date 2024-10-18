@@ -1,5 +1,5 @@
 package org.example;
 
-public enum Dificulty {
+public enum Difficulty {
     EASY, MEDIUM, HARD
 }

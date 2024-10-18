@@ -1,0 +1,13 @@
+{
+  "questionType": "MULTIANSWER",
+  "difficulty": "EASY",
+  "category": {
+    "name": "Data Access"
+  },
+  "question": "Is Julio passing his exams?",
+  "rightAnswer": "Yes, he will",
+  "wrongAnswers": [
+    "No",
+    "Yes, in 2027"
+  ]
+}

@@ -3,8 +3,8 @@ package org.example;
 public class QuestionTrueFalse extends Question {
     private boolean answer;
 
-    public QuestionTrueFalse(String question, String type, String dificulty, Category category, boolean answer) {
-        super(question, type, dificulty, category);
+    public QuestionTrueFalse(String question, QuestionType questionType, Difficulty difficulty, Category category, boolean answer) {
+        super(question, questionType, difficulty, category);
         this.answer = answer;
     }
 

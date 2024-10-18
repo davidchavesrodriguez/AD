@@ -1,59 +1,98 @@
 package org.example;
 
+import java.util.List;
 
 public class Question {
 
-    private String question;
-    private String type;
-    private String dificulty;
+    private QuestionType questionType;
+    private Difficulty difficulty;
     private Category category;
+    private String question;
+    private String rightAnswer;
+    private List<String> wrongAnswers;
 
-    public Question(String question, String type, String dificulty, Category category) {
+    // Constructor
+    public Question() {
+    }
+
+    public Question(String question, QuestionType questionType, Difficulty difficulty, Category category) {
         this.question = question;
-        this.type = type;
-        this.dificulty = dificulty;
+        this.questionType = questionType;
+        this.difficulty = difficulty;
         this.category = category;
+    }
+
+    // Getters y Setters
+    public String getRightAnswer() {
+        return rightAnswer;
+    }
+
+    public Question setRightAnswer(String rightAnswer) {
+        this.rightAnswer = rightAnswer;
+        return this;
+    }
+
+    public List<String> getWrongAnswers() {
+        return wrongAnswers;
+    }
+
+    public Question setWrongAnswers(List<String> wrongAnswers) {
+        this.wrongAnswers = wrongAnswers;
+        return this;
     }
 
     public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public Question setQuestion(String question) {
         this.question = question;
+        return this;
     }
 
-    public String getType() {
-        return type;
+    public QuestionType getQuestionType() {
+        return questionType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Question setQuestionType(QuestionType questionType) {
+        this.questionType = questionType;
+        return this;
     }
 
-    public String getDificulty() {
-        return dificulty;
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
-    public void setDificulty(String dificulty) {
-        this.dificulty = dificulty;
+    public Question setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+        return this;
     }
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public Question setCategory(Category category) {
         this.category = category;
+        return this;
     }
 
+    public Question addWrong(String wrongAnswer) {
+        if (wrongAnswer != null) {
+            wrongAnswers.add(wrongAnswer);
+        }
+        return this;
+    }
+
+    // Método toString
     @Override
     public String toString() {
         return "Question{" +
                 "question='" + question + '\'' +
-                ", type='" + type + '\'' +
-                ", dificulty='" + dificulty + '\'' +
+                ", type='" + questionType + '\'' +
+                ", difficulty='" + difficulty + '\'' +
                 ", category=" + category +
                 '}';
     }
+
 }
