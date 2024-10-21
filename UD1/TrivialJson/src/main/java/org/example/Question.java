@@ -1,8 +1,10 @@
 package org.example;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Question {
+public class Question implements Comparable<Question>, Serializable {
+    private Long questionId;
 
     private QuestionType questionType;
     private Difficulty difficulty;
@@ -13,6 +15,10 @@ public class Question {
 
     // Constructor
     public Question() {
+    }
+
+    public Question(String question) {
+        this.question = question;
     }
 
     public Question(String question, QuestionType questionType, Difficulty difficulty, Category category) {
@@ -87,12 +93,33 @@ public class Question {
     // Método toString
     @Override
     public String toString() {
-        return "Question{" +
-                "question='" + question + '\'' +
-                ", type='" + questionType + '\'' +
-                ", difficulty='" + difficulty + '\'' +
-                ", category=" + category +
-                '}';
+        return "Question:" +
+                "number='" + questionId + '\'' +
+                "question='" + question + '\'';
+    }
+
+    @Override
+    public int compareTo(Question anotherQuestion) {
+
+        int result = this.question.compareTo(anotherQuestion.question);
+
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.questionType.compareTo(anotherQuestion.questionType);
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.difficulty.compareTo(anotherQuestion.difficulty);
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.category.toString().compareTo(anotherQuestion.category.toString());
+
+        return result;
     }
 
 }

@@ -4,11 +4,11 @@ public enum QuestionType {
     MULTIANSWER("multianswer"), TRUEFALSE("truefalse");
     private final String questionType;
 
-    QuestionType(String type) {
-        this.questionType = type;
+    QuestionType(String questionType) {
+        this.questionType = questionType;
     }
 
     public String getType() {
-        return this.questionType;
+        return questionType;
     }
 }

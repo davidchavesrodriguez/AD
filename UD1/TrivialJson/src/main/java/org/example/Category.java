@@ -2,11 +2,16 @@ package org.example;
 
 import java.util.Objects;
 
-public class Category {
+public final class Category {
+    private static final String DEFAULT_CATEGORY = "General";
     private final String name;
 
     public Category(String name) {
         this.name = name;
+    }
+
+    public Category() {
+        this.name = "No category";
     }
 
     public String getName() {
@@ -24,5 +29,10 @@ public class Category {
     @Override
     public int hashCode() {
         return Objects.hashCode(getName());
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
