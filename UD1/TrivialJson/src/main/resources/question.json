@@ -1,5 +1,6 @@
 {
-  "questionType": "MULTIANSWER",
+  "questionId": null,
+  "questionType": "Multianswer",
   "difficulty": "EASY",
   "category": {
     "name": "Data Access"
