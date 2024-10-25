@@ -7,6 +7,7 @@ import java.lang.reflect.Type;
 public class PersonaSerializerDeserializer implements JsonSerializer<Persona>, JsonDeserializer<Persona> {
     public static void main(String[] args) {
         Persona persona = new Persona("Pepe", 24);
+        persona.setDireccion(new Direccion("Boiro", "Cabo de Crus"));
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting()
@@ -41,6 +42,7 @@ public class PersonaSerializerDeserializer implements JsonSerializer<Persona>, J
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("name", persona.getNombre());
         jsonObject.addProperty("age", persona.getEdad());
+        jsonObject.addProperty("address", persona.getCalle() + ", " + persona.getCidade());
         return jsonObject;
     }
 }

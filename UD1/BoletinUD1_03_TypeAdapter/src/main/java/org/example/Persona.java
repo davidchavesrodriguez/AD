@@ -3,6 +3,7 @@ package org.example;
 public class Persona {
     private String nombre;
     private int edad;
+    private Direccion direccion;
 
     public Persona() {
     }
@@ -10,6 +11,18 @@ public class Persona {
     public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+    }
+
+    public String getCidade() {
+        return direccion != null ? direccion.getCiudad() : null;
+    }
+
+    public String getCalle() {
+        return direccion != null ? direccion.getCalle() : null;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
     }
 
     public String getNombre() {
@@ -24,6 +37,10 @@ public class Persona {
         return edad;
     }
 
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
     public void setEdad(int edad) {
         this.edad = edad;
     }
@@ -33,6 +50,6 @@ public class Persona {
         return "Persona{" +
                 "nombre='" + nombre + '\'' +
                 ", edad=" + edad +
-                '}';
+                '}' + direccion;
     }
 }
