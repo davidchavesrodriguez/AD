@@ -42,20 +42,38 @@ public class Direccion {
 
     public static void main(String[] args) {
         Direccion direccion= new Direccion("Boiro", "Rua Principal");
+        Direccion direccionMadrid= new Direccion("Madrid", "Zoo Nacional");
         GsonBuilder gsonBuilder= new GsonBuilder();
         Gson gson= gsonBuilder.setPrettyPrinting()
-                .registerTypeAdapter(Direccion.class, new JsonSerializer() {
-                    @Override
-                    public JsonElement serialize(Object o, Type type, JsonSerializationContext jsonSerializationContext) {
-                        return null;
-                    }
+                .registerTypeAdapter(Direccion.class, (JsonSerializer<Direccion>) (o, type, jsonSerializationContext) -> {
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("address", o.getCalle()+ ", " + o.getCiudad());
+                    return jsonObject;
+                })
+                .registerTypeAdapter(Direccion.class, (JsonDeserializer<Direccion>) (jsonElement, type, jsonDeserializationContext) -> {
+                    JsonObject jsonObject= jsonElement.getAsJsonObject();
+                    String address= jsonObject.get("address").getAsString();
+                    String[] partes= address.split(", ");
+                    return new Direccion(partes[1], partes[0]);
                 })
                 .create();
 
-        String json= gson.toJson(direccion);
-        System.out.println(json);
+        // Serializar
+        String json = gson.toJson(direccion);
+        String jsonMadrid= gson.toJson(direccionMadrid);
+        System.out.println("--------------------------------");
+        System.out.println("Serialized JSON: " + json);
+        System.out.println("--------------------------------");
+        System.out.println("Serialized Madrid: " + jsonMadrid);
 
-        Direccion direccionDeserializada= gson.fromJson(json, Direccion.class);
-        System.out.println(direccionDeserializada);
+        // Deserializar
+        Direccion direccionDeserializada = gson.fromJson(json, Direccion.class);
+        Direccion direccionMadridDeserializada= gson.fromJson(jsonMadrid, Direccion.class);
+        System.out.println("--------------------------------");
+        System.out.println("Deserialized Object: " + direccionDeserializada);
+        System.out.println("--------------------------------");
+        System.out.println("Deserialized Madrid: " + direccionMadridDeserializada);
+        System.out.println("--------------------------------");
+
     }
 }
