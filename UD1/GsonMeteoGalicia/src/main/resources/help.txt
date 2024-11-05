@@ -1,0 +1,46 @@
+2. Paso a Paso para Realizar el Ejercicio
+Paso 1: Explora y Familiarízate con el JSON
+
+    Consejo: Examina el JSON de ejemplo y revisa la documentación para comprender cómo se organizan los datos.
+    Identifica qué datos van en cada clase (ej., Concello, PrediccionDia, VariableFranxa) y qué nombres exactos usa MeteoGalicia en su JSON para cada campo.
+
+Paso 2: Crea las Clases de Datos
+
+    Concello: Crea esta clase primero, es la más sencilla. Define idConcello y nome como atributos. Añade un toString que imprima el nombre y el ID.
+    PrediccionDia y VariableFranxa: Aquí define las variables para almacenar los valores por franja (manha, tarde, noite) y crea un toString para mostrar los datos en un formato limpio.
+    Consejo: Trabaja una clase a la vez y asegúrate de que cada una se imprima correctamente antes de avanzar. Esto simplificará la depuración.
+
+Paso 3: Define las Enumeraciones
+
+    VariableMeteo: Usa los nombres específicos de los atributos de JSON (como "ceo" para cielo) en la enumeración.
+    Consejo: Añade un método fromString que permita convertir un nombre de variable de tipo String en un valor de la enumeración, como indica el ejercicio. Esto facilitará la conversión cuando hagas la deserialización.
+
+Paso 4: Configura la Deserialización con JsonDeserializer
+
+    PrediccionDeserializer: Implementa JsonDeserializer<Prediccion>. Configura los campos para que lea idConcello y nome y verifique que funcione con el ejemplo JSON.
+    Consejo: Registra PrediccionDeserializer en el objeto GsonBuilder. Prueba que deserialice correctamente y devuelva solo el objeto Concello al inicio.
+
+Paso 5: Deserialización de PrediccionDia con JsonDeserializer
+
+    Configura PrediccionDiaDeserializer: Aquí adapta solo los campos de primer nivel (dataPredicion, nivelAviso, tMax, etc.). Asegúrate de ignorar los valores de VariableFranxa en esta primera versión.
+    Consejo: Realiza un mapeo de atributos, permitiendo asignar valores null o valores por defecto cuando algún campo falte. Esto puede ser útil al usar Optional o al verificar valores null antes de asignarlos.
+
+Paso 6: Añade VariableFranxa a PrediccionDia
+
+    Una vez que PrediccionDia funcione, añade VariableFranxa. Haz un bucle para mapear cada tipo de variable (por ejemplo, ceo, pchoiva, vento) y crea objetos VariableFranxa para almacenarlos.
+    Consejo: Usa fromString de VariableMeteo para traducir el nombre del campo JSON en la variable de la enumeración adecuada. Esto hará que el código sea más legible y menos propenso a errores.
+
+Paso 7: Lee Datos desde la URL
+
+    Usa new URI(URL).toURL().openConnection().getInputStream() para obtener los datos. Convierte el InputStream a un Reader y úsalo con Gson para deserializar.
+    Consejo: Maneja posibles excepciones (ej., IOException) y asegúrate de que el flujo se cierre correctamente al final, ya sea con un bloque finally o usando try-with-resources.
+
+Paso 8: Pruebas y Ajustes
+
+    Ejecuta pruebas con diferentes Concellos y predicciones. Imprime la salida para verificar si los datos se adaptan correctamente.
+    Consejo: Haz pruebas unitarias para cada Deserializer. Así, si encuentras algún error, puedes identificarlo rápidamente.
+
+Paso 9: Optimiza y Mejora la Salida
+
+    Revisa el toString de cada clase para que la salida sea legible y clara.
+    Consejo: Si los datos se están desorganizando en la salida, ajusta la jerarquía de los objetos o verifica que cada lista y colección esté completa antes de imprimir.
