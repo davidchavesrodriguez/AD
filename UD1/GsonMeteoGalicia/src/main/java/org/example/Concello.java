@@ -32,8 +32,10 @@ public class Concello {
         this.idConcello = idConcello;
     }
 
+
     @Override
     public String toString() {
         return "Concello='" + nomeConcello + " {" + idConcello + '}';
     }
+
 }
