@@ -24,7 +24,7 @@ public class AppPrediccion {
 
                 // Configura Gson con el adaptador PrediccionAdapter
                 Gson gson = new GsonBuilder()
-                        .registerTypeAdapter(Prediccion.class, new PrediccionAdapter())
+                        .registerTypeAdapter(Prediccion.class, new PredicionAdapter())
                         .create();
 
                 // Deserializa el JSON en un objeto Prediccion
