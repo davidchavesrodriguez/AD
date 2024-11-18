@@ -2,14 +2,15 @@ package solution;
 
 public class Concello {
     private int idConcello;
-    private String nombreConcello;
+    private String nomeConcello;
 
     public Concello() {
+
     }
 
-    public Concello(int idConcello, String nombreConcello) {
+    public Concello(int idConcello, String nomeConcello) {
         this.idConcello = idConcello;
-        this.nombreConcello = nombreConcello;
+        this.nomeConcello = nomeConcello;
     }
 
     public int getIdConcello() {
@@ -20,19 +21,18 @@ public class Concello {
         this.idConcello = idConcello;
     }
 
-    public String getNombreConcello() {
-        return nombreConcello;
+    public String getNomeConcello() {
+        return nomeConcello;
     }
 
-    public void setNombreConcello(String nombreConcello) {
-        this.nombreConcello = nombreConcello;
+    public void setNomeConcello(String nomeConcello) {
+        this.nomeConcello = nomeConcello;
     }
 
     @Override
     public String toString() {
-        return "Concello{" +
-                "idConcello=" + idConcello +
-                ", nombreConcello='" + nombreConcello + '\'' +
-                '}';
+        return "\nConcello: " + nomeConcello + "[" + idConcello + "]";
     }
+
+
 }

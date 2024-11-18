@@ -1,58 +1,71 @@
-//package solution;
-//
-//public class VariableFranxa {
-//    public static final int NO_DATA = -9999; // Valor por defecto cuando no hay dato para una variable entera.
-//
-//    private VariableMeteoroloxica variableMeteorologica;
-//    private int valorManha;
-//    private int valorTarde;
-//    private int valorNoche;
-//
-//    public VariableFranxa() {
-//    }
+package solution;
 
-//    public VariableFranxa(VariableMeteoroloxica variableMeteorologica, int valorManha, int valorTarde, int valorNoche) {
-//        this.variableMeteorologica = variableMeteorologica;
-//        this.valorManha = valorManha;
-//        this.valorTarde = valorTarde;
-//        this.valorNoche = valorNoche;
-//    }
-//
-//    public VariableMeteoroloxica getVariableMeteorologica() {
-//        return variableMeteorologica;
-//    }
-//
-//    public void setVariableMeteorologica(VariableMeteoroloxica variableMeteorologica) {
-//        this.variableMeteorologica = variableMeteorologica;
-//    }
-//
-//    public int getValorManha() {
-//        return valorManha;
-//    }
+public class VariableFranxa {
+    private static final int NO_DATA = -999;
 
-//    public void setValorManha(int valorManha) {
-//        this.valorManha = valorManha;
+    private VariableMeteo variableMeteo;
+    private int valorManha;
+    private int valorTarde;
+    private int valorNoite;
+
+    public VariableFranxa() {
+        this.valorManha = NO_DATA;
+        this.valorTarde = NO_DATA;
+        this.valorNoite = NO_DATA;
+    }
+
+    public VariableFranxa(VariableMeteo variableMeteo, int valorManha, int valorTarde, int valorNoite) {
+        this.variableMeteo = variableMeteo;
+        this.valorManha = valorManha;
+        this.valorTarde = valorTarde;
+        this.valorNoite = valorNoite;
+    }
+
+    public VariableMeteo getVariableMeteo() {
+        return variableMeteo;
+    }
+
+    public void setVariableMeteo(VariableMeteo variableMeteo) {
+        this.variableMeteo = variableMeteo;
+    }
+
+    public int getValorManha() {
+        return valorManha;
+    }
+
+    public void setValorManha(int valorManha) {
+        this.valorManha = valorManha;
+    }
+
+    public int getValorTarde() {
+        return valorTarde;
+    }
+
+    public void setValorTarde(int valorTarde) {
+        this.valorTarde = valorTarde;
+    }
+
+    public int getValorNoite() {
+        return valorNoite;
+    }
+
+    public void setValorNoite(int valorNoite) {
+        this.valorNoite = valorNoite;
+    }
+
+    @Override
+    public String toString() {
+        return "VariableFranxa{" +
+                "variableMeteo=" + variableMeteo +
+                ", valorManha=" + valorManha +
+                ", valorTarde=" + valorTarde +
+                ", valorNoite=" + valorNoite +
+                '}';
+    }
+
+
+//    public static void main(String[] args) {
+//        VariableFranxa variable= new VariableFranxa();
+//        System.out.println(variable);
 //    }
-//
-//    public int getValorTarde() {
-//        return valorTarde;
-//    }
-//
-//    public void setValorTarde(int valorTarde) {
-//        this.valorTarde = valorTarde;
-//    }
-//
-//    public int getValorNoche() {
-//        return valorNoche;
-//    }
-//
-//    public void setValorNoche(int valorNoche) {
-//        this.valorNoche = valorNoche;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return variable + ": (" + (valorManha != NO_DATA ? valorManha : "-") + ", " + (valorTarde != NO_DATA ? valorTarde : "-") + ", "
-//                + (valorNoche != NO_DATA ? valorNoche : "-") + ')';
-//    }
-//}
+}
