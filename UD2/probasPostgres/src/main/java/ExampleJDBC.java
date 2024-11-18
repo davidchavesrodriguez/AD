@@ -8,14 +8,14 @@ public class ExampleJDBC {
     public static void main(String[] args) {
         // Configuración de la conexión
         String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";  // Cambia si tu usuario es diferente
-        String password = "abc123.";  // Cambia por tu contraseña
+        String user = "postgres";
+        String password = "abc123.";
 
         // Establecer la conexión y consultar los datos
         try (Connection con = DriverManager.getConnection(url, user, password)) {
             showPokemonTable(con);  // Llamamos a la función para mostrar los Pokémon
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getCause());
         }
     }
 
