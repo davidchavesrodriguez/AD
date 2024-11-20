@@ -21,8 +21,9 @@ public class PostalCodeTypeAdapter extends TypeAdapter<PostalCode> {
         for (Place place : postalCode.getPlaces()) {
             jsonWriter.beginObject();
             jsonWriter.name("place name").value(place.getPlaceName());
-            jsonWriter.name("latitude").value(place.getLatitude());
-            jsonWriter.name("longitude").value(place.getLongitude());
+            jsonWriter.name("latitude").value(String.valueOf(place.getLatitude()));
+            jsonWriter.name("longitude").value(String.valueOf(place.getLongitude()));
+
             jsonWriter.name("state").value(place.getState());
             jsonWriter.name("state abbreviation").value(place.getStateAbbreviation());
             jsonWriter.endObject();
@@ -72,8 +73,8 @@ public class PostalCodeTypeAdapter extends TypeAdapter<PostalCode> {
             String field = jsonReader.nextName();
             switch (field) {
                 case "place name" -> placeName = jsonReader.nextString();
-                case "latitude" -> latitude = jsonReader.nextDouble();
-                case "longitude" -> longitude = jsonReader.nextDouble();
+                case "latitude" -> latitude = Double.parseDouble(jsonReader.nextString());
+                case "longitude" -> longitude = Double.parseDouble(jsonReader.nextString());
                 case "state" -> state = jsonReader.nextString();
                 case "state abbreviation" -> stateAbbreviation = jsonReader.nextString();
             }
@@ -82,4 +83,5 @@ public class PostalCodeTypeAdapter extends TypeAdapter<PostalCode> {
 
         return new Place(placeName, latitude, longitude, state, stateAbbreviation);
     }
+
 }
