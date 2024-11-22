@@ -1,0 +1,21 @@
+{
+  "post code": "15930",
+  "country": "Spain",
+  "country abbreviation": "ES",
+  "places": [
+    {
+      "place name": "Boiro (Boiro)",
+      "longitude": "-8.9",
+      "state": "Galicia",
+      "state abbreviation": "GA",
+      "latitude": "42.65"
+    },
+    {
+      "place name": "Vimiliro (Boiro)",
+      "longitude": "-8.9",
+      "state": "Galicia",
+      "state abbreviation": "GA",
+      "latitude": "42.65"
+    }
+  ]
+}
