@@ -45,14 +45,15 @@ public class PrediccionDiaDeserializer implements JsonDeserializer<PrediccionDia
         JsonElement uvMaximoElement = jsonObject.get("uvMax");
         prediccionDia.setUvMaximo(uvMaximoElement != null && !uvMaximoElement.isJsonNull() ? uvMaximoElement.getAsInt() : 0);
 
-        // Recuperar las variables de franxa para cada tipo de variable meteorológica
+        // Recuperar as variables de franxa para cada tipo de variable meteorológica
         for (VariableMeteo variable : VariableMeteo.values()) {
             if (jsonObject.has(variable.getNomeVariableMeteo())) {
                 JsonObject varFranxaJsonObject = jsonObject.getAsJsonObject(variable.getNomeVariableMeteo());
                 VariableFranxa variableFranxa = getVariableFranxa(variable, varFranxaJsonObject);
-                prediccionDia.ad(variable, variableFranxa);
+                prediccionDia.addVariableFranxa(variableFranxa);
             }
         }
+
 
         return prediccionDia;
     }

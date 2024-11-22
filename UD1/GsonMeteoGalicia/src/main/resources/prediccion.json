@@ -1,0 +1,20 @@
+{
+  "predConcello": {
+    "idConcello": 15078,
+    "nome": "Santiago de Compostela",
+    "listaPredDiaConcello": [
+      {
+        "ceo": { "manha": 104, "noite": 210, "tarde": 105 },
+        "dataPredicion": "2024-11-19T00:00:00",
+        "nivelAviso": null,
+        "pchoiva": { "manha": 5, "noite": 90, "tarde": 45 },
+        "tMax": 15,
+        "tMin": 11,
+        "tmaxFranxa": { "manha": 14, "noite": 14, "tarde": 15 },
+        "tminFranxa": { "manha": 11, "noite": 12, "tarde": 14 },
+        "uvMax": 2,
+        "vento": { "manha": 299, "noite": 299, "tarde": 307 }
+      }
+    ]
+  }
+}

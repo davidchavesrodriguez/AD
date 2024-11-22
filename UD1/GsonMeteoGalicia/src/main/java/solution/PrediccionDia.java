@@ -79,9 +79,10 @@ public class PrediccionDia {
         this.listaVariablesFranxa = listaVariablesFranxa;
     }
 
-    public void addVariableFranxa(VariableMeteo variableMeteo, VariableFranxa variableFranxa) {
-        variableFranxa.setVariableMeteo(variableMeteo);
-        listaVariablesFranxa.add(variableFranxa);
+    public void addVariableFranxa(VariableFranxa variableFranxa) {
+        if (variableFranxa != null) {
+            listaVariablesFranxa.add(variableFranxa);
+        }
     }
 
     @Override
