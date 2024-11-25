@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -17,6 +18,15 @@ public class Book {
     private Short anho;
     private Boolean disponible;
     private byte[] portada;
+    private LocalDate dataPublicacion;
+
+
+    public Book(String titulo, String autor, String isbn, Short anho) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.isbn = isbn;
+        setAnho(anho);
+    }
 
     public Long getIdBook() {
         return idBook;
@@ -94,17 +104,28 @@ public class Book {
         return null;
     }
 
+    public LocalDate getDataPublicacion() {
+        return dataPublicacion;
+    }
+
+    public void setDataPublicacion(LocalDate dataPublicacion) {
+        this.dataPublicacion = dataPublicacion;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(idBook, book.idBook) && Objects.equals(isbn, book.isbn) && Objects.equals(titulo, book.titulo) && Objects.equals(autor, book.autor) && Objects.equals(anho, book.anho) && Objects.equals(disponible, book.disponible) && Objects.deepEquals(portada, book.portada);
+        return Objects.equals(idBook, book.idBook) && Objects.equals(isbn, book.isbn)
+                && Objects.equals(titulo, book.titulo) && Objects.equals(autor, book.autor)
+                && Objects.equals(anho, book.anho) && Objects.equals(disponible, book.disponible)
+                && Objects.deepEquals(portada, book.portada) && Objects.equals(dataPublicacion, book.dataPublicacion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idBook, isbn, titulo, autor, anho, disponible, Arrays.hashCode(portada));
+        return Objects.hash(idBook, isbn, titulo, autor, anho, disponible, Arrays.hashCode(portada), dataPublicacion);
     }
 
     @Override
@@ -116,7 +137,10 @@ public class Book {
                 .append(", ")
                 .append(autor != null ? autor : "*")
                 .append(", ")
-                .append(anho != null ? anho : "*");
+                .append(anho != null ? anho : "*")
+                .append(", Publicado en: ")
+                .append(dataPublicacion != null ? dataPublicacion : "*")
+        ;
 
         // Si algún campo obligatorio está vacío, se añade un asterisco final
         if (titulo == null || autor == null || anho == null) {
