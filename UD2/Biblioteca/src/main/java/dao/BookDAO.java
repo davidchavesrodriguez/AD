@@ -1,8 +1,12 @@
 package dao;
 
 import models.Book;
+import org.h2.command.query.Select;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class BookDAO implements DAO<Book> {
@@ -12,9 +16,22 @@ public class BookDAO implements DAO<Book> {
         this.connection = connection;
     }
 
-    @Override
+    @OverrideLong
     public Book get(long id) {
-        return null;
+        String query = "SELECT * FROM Book WHERE idBook = ?";
+        try(PreparedStatement preparedStatement= connection.prepareStatement(query)) {
+            preparedStatement.setLong(1, idBook);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return mapResultSetToBook(resultSet);
+                }
+                }
+            } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
