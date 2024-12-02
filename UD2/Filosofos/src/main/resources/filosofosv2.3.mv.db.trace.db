@@ -1,0 +1,6 @@
+2024-12-02 10:25:43.308944+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FILOSOFO" not found (this database is empty); SQL statement:
+SELECT * FROM Filosofo [42104-232]
+2024-12-02 10:26:11.184251+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FILOSOFO" not found (this database is empty); SQL statement:
+SELECT * FROM FILOSOFO [42104-232]
