@@ -28,6 +28,20 @@ public class Book {
         setAnho(anho);
     }
 
+    public Book() {
+
+    }
+
+    public Book(String isbn, String titulo, String autor, short anho, boolean disponible, byte[] portada) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anho = anho;
+        this.disponible = disponible;
+        this.portada = portada;
+    }
+
+
     public Long getIdBook() {
         return idBook;
     }
