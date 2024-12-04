@@ -5,12 +5,13 @@ import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Serializable {
     private Long idBook;
     private String isbn;
     private String titulo;
@@ -20,12 +21,31 @@ public class Book {
     private byte[] portada;
     private LocalDate dataPublicacion;
 
+    public Book() {
+    }
+
+    public Book(String isbn, String titulo, String autor, Short anho, Boolean disponible) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anho = anho;
+        this.disponible = disponible;
+    }
 
     public Book(String titulo, String autor, String isbn, Short anho) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
         setAnho(anho);
+    }
+
+    public Book(Long idBook, String isbn, String titulo, String autor, Short anho, Boolean disponible) {
+        this.idBook = idBook;
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anho = anho;
+        this.disponible = disponible;
     }
 
     public Long getIdBook() {
@@ -76,6 +96,7 @@ public class Book {
         this.portada = portada;
     }
 
+    // Añadir portada desde archivo
     public void setPortada(File f) {
         try {
             this.portada = Files.readAllBytes(f.toPath());
@@ -99,6 +120,7 @@ public class Book {
     public Image getImage() throws IOException {
         if (portada != null) {
             ByteArrayInputStream flujo = new ByteArrayInputStream(portada);
+            ImageIO.read(flujo);
             return ImageIO.read(flujo);
         }
         return null;
@@ -117,22 +139,19 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(idBook, book.idBook) && Objects.equals(isbn, book.isbn)
-                && Objects.equals(titulo, book.titulo) && Objects.equals(autor, book.autor)
-                && Objects.equals(anho, book.anho) && Objects.equals(disponible, book.disponible)
-                && Objects.deepEquals(portada, book.portada) && Objects.equals(dataPublicacion, book.dataPublicacion);
+        return Objects.equals(isbn, book.isbn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idBook, isbn, titulo, autor, anho, disponible, Arrays.hashCode(portada), dataPublicacion);
+        return Objects.hash(isbn);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        // Comprobamos cada campo y lo añadimos al StringBuilder
         sb.append(titulo != null ? titulo : "*")
                 .append(", ")
                 .append(autor != null ? autor : "*")
@@ -142,7 +161,6 @@ public class Book {
                 .append(dataPublicacion != null ? dataPublicacion : "*")
         ;
 
-        // Si algún campo obligatorio está vacío, se añade un asterisco final
         if (titulo == null || autor == null || anho == null) {
             sb.append(" *");
         }

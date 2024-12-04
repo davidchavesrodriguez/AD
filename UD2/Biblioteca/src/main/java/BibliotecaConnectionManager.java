@@ -7,7 +7,7 @@ public class BibliotecaConnectionManager {
     private static volatile BibliotecaConnectionManager instance;
     private Connection connection;
     public static final String DRIVER = "org.h2.Driver";
-    public static final String URL = "jdbc:h2:/home/sanclemente.local/a22davidcr/Escritorio/bbdd/biblioteca2.mv.db" +
+    public static final String URL = "jdbc:h2:C:\\Users\\19dch\\OneDrive\\Escritorio\\Clase\\DAM2\\Biblioteca" +
             ";DB_CLOSE_ON_EXIT=TRUE;DATABASE_TO_UPPER=FALSE";
 
     // Constructor privado
