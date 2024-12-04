@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class BibliotecaConnectionManager {
     // Instancia única para el patrón Singleton
     private static volatile BibliotecaConnectionManager instance;
-    private Connection connection;
+    private static Connection connection;
     public static final String DRIVER = "org.h2.Driver";
     public static final String URL = "jdbc:h2:C:\\Users\\19dch\\OneDrive\\Escritorio\\Clase\\DAM2\\Biblioteca" +
             ";DB_CLOSE_ON_EXIT=TRUE;DATABASE_TO_UPPER=FALSE";
@@ -35,7 +35,7 @@ public class BibliotecaConnectionManager {
     }
 
     // Devuelve la conexión actual
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection(URL);

@@ -21,7 +21,7 @@ public class MainBiblioteca {
         // System.out.println(bookDao.get(1));
 
         // Mostrar todos los libros
-        // bookDao.getAll().forEach(System.out::println);
+        bookDao.getAll().forEach(System.out::println);
 
         // Insertar un libro
         // bookDao.save(new Book("0-6836-1607-2", "Como aprobar Pokemon", "David Chaves", (short) 2002, true));

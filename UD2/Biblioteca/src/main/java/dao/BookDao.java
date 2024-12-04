@@ -71,7 +71,7 @@ public class BookDao implements DAO<Book> {
                 "VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, book.getIsbn());
-            preparedStatement.setString(2, book.getTitulo());
+            preparedStatement.setString(2, book.getAutor());
             preparedStatement.setString(3, book.getAutor());
             preparedStatement.setShort(4, book.getAnho());
             preparedStatement.setBoolean(5, book.getDisponible());
