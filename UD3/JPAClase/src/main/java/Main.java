@@ -25,7 +25,7 @@ public class Main {
         EntityManager entityManager= entityManagerFactory.createEntityManager();
 
         // INSERT
-entityManager.getTransaction().begin();
+        entityManager.getTransaction().begin();
 
         entityManager.persist(pelicula);
         entityManager.persist(pelicula2);
@@ -44,5 +44,6 @@ entityManager.getTransaction().begin();
         // SELECT
         Pelicula selectedPelicula = entityManager.find(Pelicula.class, 7L);
         System.out.println(selectedPelicula);
+
     }
 }

@@ -10,11 +10,16 @@ public class Pelicula implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pelicula", nullable = false, unique = true)
+    // @Column(name = "id_pelicula", nullable = false, unique = true)
     private Long idPelicula;
     private String titulo;
     private Short ano;
     private transient LocalDate fechaEstreno;
+
+    @ManyToOne
+    @JoinColumn(name = "idDirector")
+
+    private Director director;
 
     public Pelicula() {
     }
