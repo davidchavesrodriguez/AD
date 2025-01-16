@@ -18,6 +18,9 @@ public class Contido {
     private Long idContido;
     private Long idBook;
     private String contido;
+    private Book book;
+
+
 
     public Contido() {
     }

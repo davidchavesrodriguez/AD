@@ -29,6 +29,7 @@ public class Book implements Serializable {
 
     private String[] contido;
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public Book() {
@@ -75,9 +76,8 @@ public class Book implements Serializable {
         return idBook;
     }
 
-    public Book setIdBook(Long idBook) {
+    public void setIdBook(Long idBook) {
         this.idBook = idBook;
-        return this;
     }
 
     public String getIsbn() {
@@ -133,6 +133,8 @@ public class Book implements Serializable {
         this.portada = portada;
         return this;
     }
+
+
 
     /**
      * Asigna la portada con flujos, leyendo los bytes.
