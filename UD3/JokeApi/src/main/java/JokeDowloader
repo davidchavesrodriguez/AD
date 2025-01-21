@@ -1,0 +1,59 @@
+import static java.lang.Thread.sleep;
+
+public class JokeDownloader implements Runnable {
+
+    private static final long tiempoEspera = 550;
+    private static JokeDownloader instance;
+    private static final int MAX_CHISTES = 200;
+
+    private JokeDAO chisteDAO;
+    private int numeroJokes = MAX_CHISTES;
+
+    private JokeDownloader() {
+        chisteDAO = new JokeDAO();
+    }
+
+    public static JokeDownloader getInstance() {
+        if (instance == null) {
+            synchronized (JokeDownloader.class) {
+                if (instance == null) {
+                    instance = new JokeDownloader();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+    public void setNumeroJokes(int numeroJokes) {
+        this.numeroJokes = numeroJokes;
+    }
+
+    @Override
+    public void run() {
+        chisteDAO = new JokeDAO();
+        var emf = JokeJpaManager.getEntityManagerFactory(JokeJpaManager.BIBLIOTECA_H2);
+        var em = emf.createEntityManager();
+
+        for (int i = 0; i < numeroJokes; i++) {
+            Joke chiste = chisteDAO.getJokeById(i);
+            if (chiste != null) {
+                try {
+                    em.getTransaction().begin();
+                    em.persist(chiste);
+                    em.getTransaction().commit();
+                } catch (Exception e) {
+                    em.getTransaction().rollback();
+                }
+                System.out.print("*");
+                try {
+                    sleep(tiempoEspera);
+                } catch (InterruptedException e) {
+                    System.out.println("Error en el hilo");
+                }
+            }
+
+        }
+
+    }
+}
