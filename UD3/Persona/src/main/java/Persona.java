@@ -6,7 +6,7 @@ import java.time.Period;
 @Entity
 public class Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long idPersona;
 
     @Column(name = "nome_apelidos", nullable = false)
