@@ -1,7 +1,6 @@
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -15,7 +14,7 @@ public class Book {
     private String isbn;
     private String title;
     private String author;
-    private Short year;
+    private Short publicationYear;
     private Boolean available;
     @Lob
     private byte[] cover;
@@ -41,7 +40,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(String isbn, String title, Calendar publicationDate, Long publishedSince, Category category, String[] content, byte[] cover, Boolean available, Short year, String author) {
+    public Book(String isbn, String title, Calendar publicationDate, Long publishedSince, Category category, String[] content, byte[] cover, Boolean available, Short publicationYear, String author) {
         this.isbn = isbn;
         this.title = title;
         this.publicationDate = publicationDate;
@@ -50,7 +49,7 @@ public class Book {
         this.content = content;
         this.cover = cover;
         this.available = available;
-        this.year = year;
+        this.publicationYear = publicationYear;
         this.author = author;
     }
 
@@ -86,12 +85,12 @@ public class Book {
         this.author = author;
     }
 
-    public Short getYear() {
-        return year;
+    public Short getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setYear(Short year) {
-        this.year = year;
+    public void setPublicationYear(Short publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public Boolean getAvailable() {
