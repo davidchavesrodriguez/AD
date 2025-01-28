@@ -21,5 +21,4 @@ public class JpaNbaManager {
         entityManagerFactory.close();
     }
 
-    // Métodos para añadir equipos, entrenadores, asignar relaciones, etc.
 }

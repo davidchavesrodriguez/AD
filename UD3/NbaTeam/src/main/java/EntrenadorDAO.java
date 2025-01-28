@@ -4,6 +4,8 @@ import java.util.List;
 public class EntrenadorDAO {
 
     private EntityManager entityManager;
+    public EntrenadorDAO() {
+    }
 
     public EntrenadorDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -21,5 +23,8 @@ public class EntrenadorDAO {
 
     public List<Entrenador> listarEntrenadores() {
         return entityManager.createQuery("SELECT entrenador FROM Entrenador entrenador", Entrenador.class).getResultList();
+    }
+
+    public void close() {
     }
 }

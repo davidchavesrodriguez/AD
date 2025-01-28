@@ -9,7 +9,6 @@ import java.io.Serializable;
 })
 public class Equipo implements Serializable {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipo;
     private String nombre;
     private String ciudad;
