@@ -1,30 +1,26 @@
 import jakarta.persistence.EntityManager;
-import java.util.List;
+import jakarta.persistence.EntityTransaction;
 
 public class EntrenadorDAO {
+    private EntityManager em;
 
-    private EntityManager entityManager;
-    public EntrenadorDAO() {
+    public EntrenadorDAO(EntityManager em) {
+        this.em = em;
     }
 
-    public EntrenadorDAO(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public void addEntrenador(Entrenador entrenador) {
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            em.persist(entrenador);
+            transaction.commit();
+        } catch (RuntimeException e) {
+            if (transaction.isActive()) transaction.rollback();
+            throw e;
+        }
     }
 
-    public void guardarEntrenador(Entrenador entrenador) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(entrenador);
-        entityManager.getTransaction().commit();
-    }
-
-    public Entrenador buscarEntrenadorPorId(Long id) {
-        return entityManager.find(Entrenador.class, id);
-    }
-
-    public List<Entrenador> listarEntrenadores() {
-        return entityManager.createQuery("SELECT entrenador FROM Entrenador entrenador", Entrenador.class).getResultList();
-    }
-
-    public void close() {
+    public Entrenador getEntrenadorById(Long id) {
+        return em.find(Entrenador.class, id);
     }
 }

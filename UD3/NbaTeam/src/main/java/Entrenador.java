@@ -1,16 +1,15 @@
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "entrenador")
-public class Entrenador implements Serializable {
+public class Entrenador{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEntrenador;
     private String nombre;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
     private double salario;
 
     @OneToOne
@@ -33,11 +32,11 @@ public class Entrenador implements Serializable {
         this.nombre = nombre;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

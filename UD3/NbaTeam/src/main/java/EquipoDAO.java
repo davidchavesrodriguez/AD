@@ -1,47 +1,26 @@
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-
-import java.time.LocalDate;
-import java.util.List;
+import jakarta.persistence.EntityTransaction;
 
 public class EquipoDAO {
-    private EntityManager entityManager;
+    private EntityManager em;
 
-    // Constructor por defecto
-    public EquipoDAO() {
+    public EquipoDAO(EntityManager em) {
+        this.em = em;
     }
 
-    // Constructor con EntityManager
-    public EquipoDAO(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public void addEquipo(Equipo equipo) {
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            em.persist(equipo);
+            transaction.commit();
+        } catch (RuntimeException e) {
+            if (transaction.isActive()) transaction.rollback();
+            throw e;
+        }
     }
 
-    // Método para añadir un equipo
-    public void addEquipo(Equipo equipo){
-        entityManager.getTransaction().begin();
-        entityManager.persist(equipo);
-        entityManager.getTransaction().commit();
-    }
-
-    // Método para encontrar un equipo por su ID
-    public Equipo findEquipoById(Long id) {
-        return entityManager.find(Equipo.class, id);
-    }
-
-    // Método para listar todos los equipos
-    public List<Equipo> listEquipos() {
-        return entityManager.createQuery("SELECT equipo FROM Equipo equipo", Equipo.class).getResultList();
-    }
-
-    public Equipo buscarEquipoPorId(Long id){
-        return entityManager.find(Equipo.class, id);
-    }
-
-    public List<Equipo> listarEquipos(){
-        return entityManager.createQuery("SELECT equipo FROM Equipo equipo", Equipo.class).getResultList();
-    }
-
-    public void close() {
+    public Equipo getEquipoById(Long id) {
+        return em.find(Equipo.class, id);
     }
 }
