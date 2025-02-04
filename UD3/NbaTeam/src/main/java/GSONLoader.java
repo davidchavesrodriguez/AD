@@ -1,29 +1,32 @@
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.List;
+
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 public class GSONLoader {
 
     public static void main(String[] args) {
-        try {
-            // Cargar el archivo JSON
-            FileReader reader = new FileReader("src/main/resources/equipos.json");
+        // Use try-with-resources to ensure the FileReader is closed
+        try (FileReader reader = new FileReader("src/main/resources/equipos.json")) {
+            // Create a Gson object
+            Gson gson = new GsonBuilder().create();
 
-            // Crear un objeto Gson
-            Gson gson = new Gson();
-
-            // Especificar el tipo de la respuesta (EquiposResponse)
+            // Specify the type of the response (EquiposResponse)
             Type responseType = new TypeToken<EquipoResponse>(){}.getType();
 
-            // Deserializar el JSON
+            // Deserialize the JSON
             EquipoResponse response = gson.fromJson(reader, responseType);
 
-            // Imprimir los equipos
-            for (Equipo equipo : response.getEquipos()) {
-                System.out.println(equipo.getNombreCompleto());
+            // Print the teams
+            if (response != null && response.getEquipos() != null) {
+                for (Equipo equipo : response.getEquipos()) {
+                    System.out.println(equipo.getNombreCompleto());
+                }
+            } else {
+                System.out.println("No teams found or JSON is invalid.");
             }
         } catch (IOException e) {
             e.printStackTrace();
