@@ -3,13 +3,19 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="nbaPU">
+    <persistence-unit name="peliculasPU">
+        <!-- Registra las entidades -->
+        <class>peliculas.Pelicula</class>
+        <class>peliculas.Personaxe</class>
+        <class>peliculas.Ocupacion</class>
+        <class>peliculas.PeliculaPersonaxe</class>
+
         <properties>
             <!-- Configuración JDBC (MariaDB) -->
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://dbalumnos.sanclemente.local:3312/Peliculas"/>
-            <property name="jakarta.persistence.jdbc.user" value="accesoadatos"/>
-            <property name="jakarta.persistence.jdbc.password" value="ad123.."/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3312/Peliculas"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="abc123."/>
 
             <!-- Generación del esquema -->
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>

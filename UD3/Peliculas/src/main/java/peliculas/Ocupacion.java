@@ -1,8 +1,18 @@
 package peliculas;
 
-public class Ocupacion {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "ocupacion")
+public class Ocupacion {
+    @Id
+    @Column(name = "ocupacion", length = 50)
     private String ocupacion;
+
+    @Column(name = "orde", nullable = false)
     private Integer orde;
 
     public Ocupacion() {

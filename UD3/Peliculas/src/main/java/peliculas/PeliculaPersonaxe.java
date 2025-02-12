@@ -1,16 +1,33 @@
 package peliculas;
 
-import peliculas.Pelicula;
-import peliculas.Personaxe;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "peliculapersonaxe")
 public class PeliculaPersonaxe {
 
+    @EmbeddedId
+    private PeliculaPersonaxeId id;
+
+    @ManyToOne
+    @MapsId("idPelicula") // Mapea el campo idPelicula de la clave compuesta
+    @JoinColumn(name = "idPelicula")
     private Pelicula pelicula;
+
+    @ManyToOne
+    @MapsId("idPersonaxe")
+    @JoinColumn(name = "idPersonaxe")
     private Personaxe personaxe;
+
+    @ManyToOne
+    @MapsId("ocupacion")
+    @JoinColumn(name = "ocupacion")
     private Ocupacion ocupacion;
 
+    @Column(name = "personaxeInterpretado", length = 50)
     private String personaxeInterpretado;
 
+    // Constructores
     public PeliculaPersonaxe() {
     }
 
@@ -19,17 +36,28 @@ public class PeliculaPersonaxe {
         this.personaxe = personaxe;
         this.ocupacion = ocupacion;
         this.personaxeInterpretado = personaxeInterpretado;
+        this.id = new PeliculaPersonaxeId();
+        this.id.setIdPelicula(pelicula.getIdPelicula());
+        this.id.setIdPersonaxe(personaxe.getIdPersonaxe());
+        this.id.setOcupacion(ocupacion.getOcupacion());
+    }
+
+    // Getters y setters
+    public PeliculaPersonaxeId getId() {
+        return id;
+    }
+
+    public void setId(PeliculaPersonaxeId id) {
+        this.id = id;
     }
 
     public Pelicula getPelicula() {
         return pelicula;
     }
 
-
     public void setPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
     }
-
 
     public Personaxe getPersonaxe() {
         return personaxe;
@@ -55,10 +83,14 @@ public class PeliculaPersonaxe {
         this.personaxeInterpretado = personaxeInterpretado;
     }
 
+    // Método toString
     @Override
     public String toString() {
-        return " [" + personaxe +
-                "] (" + ocupacion +
-                ") as '" + personaxeInterpretado + '\'';
+        return "PeliculaPersonaxe{" +
+                "pelicula=" + pelicula +
+                ", personaxe=" + personaxe +
+                ", ocupacion=" + ocupacion +
+                ", personaxeInterpretado='" + personaxeInterpretado + '\'' +
+                '}';
     }
 }

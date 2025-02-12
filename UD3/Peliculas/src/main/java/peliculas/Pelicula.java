@@ -1,33 +1,56 @@
 package peliculas;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.Set;
+
+@Entity
+@Table(name = "pelicula")
 public class Pelicula {
     @Id
+    @Column(name = "idPelicula")
     private Long idPelicula;
+
     @Column(length = 50)
     private String musica;
+
     @Column(length = 125)
     private String orixinal;
+
     @Column(length = 125)
     private String ingles;
+
     @Column(length = 125)
     private String castelan;
-    @Column(length = 50)
 
-    private String xenero;
-    private Short anoInicio;
+    @Convert(converter = XeneroConverter.class)
+    @Column(name = "xenero", length = 50)
+    private Xenero xenero;
+
     private Short anoFin;
     private String pais;
     private Short duracion;
-    private String otrasDDuracions;
+
+    @Column(length = 12)
     private String cor;
+
+    @Column(length = 6)
     private String son;
-    private String video;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String texto;
+
+    @Lob
     private byte[] poster;
+
+    @Column(length = 10)
     private String revisado;
+
+    @Embedded
+    private DetallePelicula detalle; // Campos opcionales embebidos
+
+    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<PeliculaPersonaxe> participantes;
 
     public Long getIdPelicula() {
         return idPelicula;
@@ -69,20 +92,12 @@ public class Pelicula {
         this.castelan = castelan;
     }
 
-    public String getXenero() {
+    public Xenero getXenero() {
         return xenero;
     }
 
-    public void setXenero(String xenero) {
+    public void setXenero(Xenero xenero) {
         this.xenero = xenero;
-    }
-
-    public Short getAnoInicio() {
-        return anoInicio;
-    }
-
-    public void setAnoInicio(Short anoInicio) {
-        this.anoInicio = anoInicio;
     }
 
     public Short getAnoFin() {
@@ -109,13 +124,6 @@ public class Pelicula {
         this.duracion = duracion;
     }
 
-    public String getOtrasDDuracions() {
-        return otrasDDuracions;
-    }
-
-    public void setOtrasDDuracions(String otrasDDuracions) {
-        this.otrasDDuracions = otrasDDuracions;
-    }
 
     public String getCor() {
         return cor;
@@ -131,14 +139,6 @@ public class Pelicula {
 
     public void setSon(String son) {
         this.son = son;
-    }
-
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
     }
 
     public String getTexto() {
@@ -168,21 +168,18 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(Long idPelicula, String musica, String orixinal, String ingles, String castelan, String xenero, Short anoInicio, Short anoFin, String pais, Short duracion, String otrasDDuracions, String cor, String son, String video, String texto, byte[] poster, String revisado) {
+    public Pelicula(Long idPelicula, String musica, String orixinal, String ingles, String castelan, Xenero xenero, Short anoFin, String pais, Short duracion, String cor, String son, String texto, byte[] poster, String revisado) {
         this.idPelicula = idPelicula;
         this.musica = musica;
         this.orixinal = orixinal;
         this.ingles = ingles;
         this.castelan = castelan;
         this.xenero = xenero;
-        this.anoInicio = anoInicio;
         this.anoFin = anoFin;
         this.pais = pais;
         this.duracion = duracion;
-        this.otrasDDuracions = otrasDDuracions;
         this.cor = cor;
         this.son = son;
-        this.video = video;
         this.texto = texto;
         this.poster = poster;
         this.revisado = revisado;
