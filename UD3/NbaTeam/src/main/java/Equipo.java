@@ -4,30 +4,26 @@ import java.awt.*;
 import java.util.Objects;
 
 @Entity
-public class Equipo{
+public class Equipo {
     @Id
     private Long idEquipo;
-
-    @Column(unique = true)
+    @Column(length = 5, unique = true, nullable = false)
     private String abreviatura;
-
+    @Column(length = 128, nullable = false)
     private String nombre;
     private String ciudad;
+    @Column(length = 64)
     private String nombreCompleto;
-
-    @Enumerated(EnumType.STRING)
+    @Column(length = 64)
     private Conferencia conferencia;
-
-    @Enumerated(EnumType.STRING)
+    @Column(length = 64)
     private Division division;
-
     @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Entrenador entrenador;
 
     public Long getIdEquipo() {
         return idEquipo;
     }
-
     public void setIdEquipo(Long idEquipo) {
         this.idEquipo = idEquipo;
     }
