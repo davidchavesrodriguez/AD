@@ -13,9 +13,9 @@
         <properties>
             <!-- Configuración JDBC (MariaDB) -->
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3312/Peliculas"/>
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="abc123."/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://dbalumnos.sanclemente.local:3312/Peliculas"/>
+            <property name="jakarta.persistence.jdbc.user" value="accesoadatos"/>
+            <property name="jakarta.persistence.jdbc.password" value="ad123.."/>
 
             <!-- Generación del esquema -->
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>

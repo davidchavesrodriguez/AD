@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "pelicula")
+@Table(name = "pelicula", schema = "peliculas")
 public class Pelicula {
     @Id
     @Column(name = "idPelicula")
@@ -28,11 +28,15 @@ public class Pelicula {
     private Xenero xenero;
 
     private Short anoFin;
-    private String pais;
+
+    @ManyToOne
+    @JoinColumn(name = "pais")
+    private Pais pais;
+
     private Short duracion;
 
     @Column(length = 12)
-    private String cor;
+    private Cor cor;
 
     @Column(length = 6)
     private String son;
@@ -108,11 +112,11 @@ public class Pelicula {
         this.anoFin = anoFin;
     }
 
-    public String getPais() {
+    public Pais getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(Pais pais) {
         this.pais = pais;
     }
 
@@ -125,11 +129,11 @@ public class Pelicula {
     }
 
 
-    public String getCor() {
+    public Cor getCor() {
         return cor;
     }
 
-    public void setCor(String cor) {
+    public void setCor(Cor cor) {
         this.cor = cor;
     }
 
@@ -168,7 +172,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(Long idPelicula, String musica, String orixinal, String ingles, String castelan, Xenero xenero, Short anoFin, String pais, Short duracion, String cor, String son, String texto, byte[] poster, String revisado) {
+    public Pelicula(Long idPelicula, String musica, String orixinal, String ingles, String castelan, Xenero xenero, Short anoFin, Pais pais, Short duracion, Cor cor, String son, String texto, byte[] poster, String revisado) {
         this.idPelicula = idPelicula;
         this.musica = musica;
         this.orixinal = orixinal;

@@ -21,17 +21,14 @@ public enum Xenero {
 
     private final String descricion;
 
-    // Constructor para asignar la descripción
     Xenero(String descricion) {
         this.descricion = descricion;
     }
 
-    // Método para obtener la descripción
     public String getDescricion() {
         return descricion;
     }
 
-    // Método para convertir un valor de la base de datos a la enumeración
     public static Xenero fromString(String text) {
         for (Xenero xenero : Xenero.values()) {
             if (xenero.descricion.equalsIgnoreCase(text)) {
@@ -41,7 +38,6 @@ public enum Xenero {
         throw new IllegalArgumentException("Xénero non válido: " + text);
     }
 
-    // Método toString para representación en texto
     @Override
     public String toString() {
         return descricion;
