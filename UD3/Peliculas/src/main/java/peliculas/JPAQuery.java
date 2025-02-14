@@ -1,88 +1,42 @@
 package peliculas;
 
-import java.util.Scanner;
-
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
 import java.util.List;
+import peliculas.Pelicula;
 
 public class JPAQuery {
-
-    public static Scanner SCAN = new Scanner(System.in);
-
     public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("peliculasPU");
+        EntityManager em = emf.createEntityManager();
 
-        EntityManager em;
-        if (args.length != 1) {
-            // em = JPAUtil.getEntityManager();
-            em = Persistence.createEntityManagerFactory("peliculasPU").createEntityManager();
-        } else {
-//            em = JPAUtil.getEntityManager(args[0]);
-            em = Persistence.createEntityManagerFactory(args[0]).createEntityManager();
-        }
+        try {
+            // 1. Listar as de duración superior a 120 minutos, ordenadas por duración
+            List<Pelicula> peliculas = em.createQuery(
+                            "SELECT p FROM Pelicula p WHERE p.duracion > 120 ORDER BY p.duracion ASC ", Pelicula.class)
+                    .getResultList();
 
-        System.out.println("Escribe la orden \"salir;\" para salir.");
-        boolean salir = false;
-
-        while (!salir) {
-
-            System.out.print("Jakarta Persistence QL> ");
-            StringBuilder sb = new StringBuilder(SCAN.nextLine().trim());
-            while (!sb.toString().endsWith(";")) {
-                sb.append(" ").append(SCAN.nextLine().trim());
+            for (Pelicula pelicula : peliculas) {
+                System.out.println(pelicula);
             }
-            String consulta = sb.substring(0, sb.length() - 1);
-            if (!consulta.equalsIgnoreCase("salir")) { //
-                if (consulta.isEmpty()) {
-                    continue;
-                }
-                try {
-                    if ("select".equalsIgnoreCase(consulta.trim().substring(0, 6))) {
-                        // Consulta JPQL. La interfaz TypedQuery hereda de Query
-                        // y permite la ejecución de consultas JPQL con la devolución de
-                        // resultados tipados.
-                        // TypedQuery<?> q = em.createQuery(consulta, Object.class);
-                        List<?> resultado = em.createQuery(consulta).getResultList(); // Las wildcard permiten devolver cualquier tipo de objeto
-                        if (!resultado.isEmpty()) {
-                            int count = 0;
-                            for (Object o : resultado) {
-                                System.out.print(++count + " ");
-                                mostrarResultados(o);
-                            }
-                        } else {
-                            System.out.println("0 resultados de la consulta");
-                        }
-                    } else {
-                        int i = em.createQuery(consulta).executeUpdate();
-                        System.out.println(i + " elementos modificados");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Error al procesar  la consulta: " + e.getMessage());
-                }
-            } else {
-                salir = true;
-            }
-        }
-    }
 
-    private static void mostrarResultados(Object resultado) {
-        if (resultado == null) {
-            System.out.print("NULL");
-        } else if (resultado instanceof Object[] fila) {
-            System.out.print("[");
-            for (Object o : fila) {
-                mostrarResultados(o);
+            // 2. Listar as dun género determinado, neste caso "Animación", ordenadas por título
+            List<Pelicula> peliculas2= em.createQuery(
+                    "SELECT p FROM Pelicula p WHERE p.xenero = 'Animacion' ORDER BY p.castelan", Pelicula.class)
+                    .getResultList();
+
+            for (Pelicula pelicula : peliculas2){
+                System.out.println(pelicula);
             }
-            System.out.print("]");
-        } else if (resultado instanceof Long || resultado instanceof Double || resultado instanceof String) {
-            System.out.print(resultado.getClass().getName() + ": " + resultado);
-        } else {
-            // ReflectionToStringBuilder es una clase de Apache Commons Lang que
-            // permite la conversión de objetos a cadenas de texto.
-//            System.out.print(ReflectionToStringBuilder.toString(resultado, ToStringStyle.SHORT_PREFIX_STYLE));
-            System.out.print(resultado);
+
+            // 3. Obtener todas las ocupaciones que tienen más de 5 películas asociadas
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+            emf.close();
         }
-        System.out.println();
     }
 }

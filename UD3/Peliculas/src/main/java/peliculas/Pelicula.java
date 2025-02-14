@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "pelicula", schema = "peliculas")
+@Table(name = "Pelicula", schema = "peliculas")
 public class Pelicula {
     @Id
     @Column(name = "idPelicula")
@@ -187,5 +187,12 @@ public class Pelicula {
         this.texto = texto;
         this.poster = poster;
         this.revisado = revisado;
+    }
+
+    @Override
+    public String toString() {
+        return castelan +
+                " [" + xenero + "]" +
+                " (" + duracion + " minutos)";
     }
 }

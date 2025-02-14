@@ -1,11 +1,8 @@
 package peliculas;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-
 public enum Xenero {
 
-    Acción_e_aventura("Acción e aventura"),
+    Acción_e_aventura("Acción y aventura"),
     Animación("Animación"),
     Ciencia_ficción("Ciencia ficción"),
     Comedia("Comedia"),
@@ -17,7 +14,13 @@ public enum Xenero {
     Musical("Musical"),
     Romántico("Romántico"),
     Suspense("Suspense"),
-    Terror("Terror");
+    Terror("Terror"),
+    Guerra("Guerra"),
+    Western("Western"),
+    Aventura("Aventura"),
+    Policial("Policial"),
+    Vanguardia("Vanguardia"),
+    ;
 
     private final String descricion;
 
@@ -31,7 +34,7 @@ public enum Xenero {
 
     public static Xenero fromString(String text) {
         for (Xenero xenero : Xenero.values()) {
-            if (xenero.descricion.equalsIgnoreCase(text)) {
+            if (xenero.descricion.equalsIgnoreCase(text.trim())) {
                 return xenero;
             }
         }

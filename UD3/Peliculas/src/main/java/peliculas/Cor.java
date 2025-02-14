@@ -7,7 +7,7 @@ package peliculas;
  */
 public enum Cor {
     BN("B/N"),
-    BN_COLOR("B/N e Color"),
+    BN_Y_COLOR("B/N e Color"),
     COLOR("Color");
 
     private final String nome;
