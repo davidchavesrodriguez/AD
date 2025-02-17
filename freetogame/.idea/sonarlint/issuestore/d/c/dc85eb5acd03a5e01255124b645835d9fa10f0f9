@@ -1,0 +1,36 @@
+
+i
+java:S1192;"LDefine a constant instead of duplicating this literal "descripcion" 3 times.(¢¤ñç8Çƒ°æÜ1
+c
+java:S1192<"GDefine a constant instead of duplicating this literal "editor" 3 times.(¥åæ8Èƒ°æÜ1
+d
+java:S1192:"GDefine a constant instead of duplicating this literal "estado" 3 times.(›‡àÒ8Èƒ°æÜ1
+n
+java:S1192;"QDefine a constant instead of duplicating this literal "descripcionCorta" 3 times.(¢¤ñç8Èƒ°æÜ1
+k
+java:S1192C"IDefine a constant instead of duplicating this literal "idImagen" 3 times.(Ã‹ÊŠıÿÿÿÿ8Èƒ°æÜ1
+o
+java:S11929"MDefine a constant instead of duplicating this literal "idPlataforma" 3 times.(í ñ¸şÿÿÿÿ8Èƒ°æÜ1
+d
+java:S1192D"GDefine a constant instead of duplicating this literal "imagen" 3 times.(Šçâé8Èƒ°æÜ1
+‰
+java:S1192?"gDefine a constant instead of duplicating this literal "SELECT * FROM Imagen WHERE idJuego = ?" 3 times.(ÆğÎùşÿÿÿÿ8Èƒ°æÜ1
+i
+java:S11929"GDefine a constant instead of duplicating this literal "titulo" 3 times.(í ñ¸şÿÿÿÿ8Èƒ°æÜ1
+c
+java:S1192="FDefine a constant instead of duplicating this literal "fecha" 3 times.(Ë¨×8Èƒ°æÜ1
+j
+java:S1192<"NDefine a constant instead of duplicating this literal "desarrollador" 3 times.(¥åæ8Èƒ°æÜ1
+j
+java:S1192b"HDefine a constant instead of duplicating this literal "idJuego" 4 times.(ğçì­ıÿÿÿÿ8Èƒ°æÜ1
+g
+java:S1192:"JDefine a constant instead of duplicating this literal "miniatura" 3 times.(›‡àÒ8Èƒ°æÜ1
+W
+java:S1141?"5Extract this nested try block into a separate method.(ÆğÎùşÿÿÿÿ8ó§æÜ1
+G	java:S106I"+Replace this use of System.out by a logger.(¼Úˆš8Àó§æÜ1
+F	java:S106O"+Replace this use of System.out by a logger.(âêM8Áó§æÜ1
+G	java:S106v"+Replace this use of System.out by a logger.(Æ€ÚÊ8Æó§æÜ1
+H	java:S106›"+Replace this use of System.out by a logger.(Æ€ÚÊ8´±­æÜ1
+f
+java:S3252¦"HUse static access with "java.sql.Statement" for "RETURN_GENERATED_KEYS".(›Àüş8Ãó§æÜ1
+H	java:S106½"+Replace this use of System.out by a logger.(ÍÏ³¼8„°æÜ1

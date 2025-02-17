@@ -1,0 +1,10 @@
+
+2
+java:S17001"Rename field "imagen"(áÇ‘Ö8¡ĞÃ‚Ü1
+G	java:S106l"+Replace this use of System.out by a logger.(Ü°Õò8éĞÃ‚Ü1
+L	java:S106n"+Replace this use of System.out by a logger.(‚¬ø¿şÿÿÿÿ8êĞÃ‚Ü1
+\
+java:S1117~":Rename "imagen" which hides the field declared at line 46.(â¼ƒøıÿÿÿÿ8íĞÃ‚Ü1
+K
+java:S1128
+")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ8òĞÃ‚Ü1

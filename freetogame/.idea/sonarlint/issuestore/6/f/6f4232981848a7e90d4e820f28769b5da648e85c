@@ -1,0 +1,8 @@
+
+d
+java:S1192""GDefine a constant instead of duplicating this literal "nombre" 3 times.(ÄÄıİ8ÒšæÜ1
+L	java:S106%"+Replace this use of System.out by a logger.(ñ¡ƒùûÿÿÿÿ8®À¾ãÜ1
+L	java:S1065"+Replace this use of System.out by a logger.(ü´×›úÿÿÿÿ8ÈØÉãÜ1
+G	java:S106I"+Replace this use of System.out by a logger.(’Æ‡8¦±ËãÜ1
+L	java:S106V"+Replace this use of System.out by a logger.(››¢¢ûÿÿÿÿ8åšæÜ1
+X	java:S125\"<This block of commented-out lines of code should be removed.(‹®·Ã8±ß’æÜ1

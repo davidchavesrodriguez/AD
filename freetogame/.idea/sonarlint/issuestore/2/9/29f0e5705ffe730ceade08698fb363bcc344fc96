@@ -1,0 +1,22 @@
+
+—
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ò¼©‘
+œ
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»¯ÿ’ûÿÿÿÿ
+—
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãğÉ¿
+—
+java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“ç¹Í
+5
+java:S3010" Remove this assignment of "con".(£¡è:
+J
+java:S2209"5Change this instance-reference to a static reference.(£¡è:
+H
+java:S1168"+Return an empty collection instead of null.(¥¹ï8ÒÔÃ‚Ü1
+H
+java:S11686"+Return an empty collection instead of null.(¥¹ï8ÖÔÃ‚Ü1
+=
+java:S1068
+"'Remove this unused "con" private field.(ëØöë
+N
+java:S1144"3Remove this unused private "GeneroDAO" constructor.(ª‘»“úÿÿÿÿ
