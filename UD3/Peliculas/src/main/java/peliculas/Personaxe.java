@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "personaxe")
+@Table(name = "Personaxe")
 public class Personaxe {
     @Id
     @Column(name = "idPersonaxe")

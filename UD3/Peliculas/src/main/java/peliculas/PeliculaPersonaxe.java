@@ -3,7 +3,7 @@ package peliculas;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "peliculapersonaxe")
+@Table(name = "PeliculaPersonaxe")
 public class PeliculaPersonaxe {
 
     @EmbeddedId
