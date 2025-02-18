@@ -3,7 +3,9 @@ package peliculas;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
 import java.util.List;
+
 import peliculas.Pelicula;
 
 public class JPAQuery {
@@ -27,7 +29,7 @@ public class JPAQuery {
                     .setParameter("xenero", Xenero.Animación)
                     .getResultList();
 
-            for (Pelicula pelicula : peliculas2){
+            for (Pelicula pelicula : peliculas2) {
                 System.out.println(pelicula);
             }
 
@@ -67,7 +69,7 @@ public class JPAQuery {
                             "SELECT pp.pelicula " +
                                     "FROM PeliculaPersonaxe pp " +
                                     "WHERE pp.ocupacion.ocupacion= :ocupacion " +
-                            "AND pp.personaxe.nome= :nome", Pelicula.class)
+                                    "AND pp.personaxe.nome= :nome", Pelicula.class)
                     .setParameter("nome", "Williams, John")
                     .setParameter("ocupacion", "Compositor de la banda original")
                     .getResultList();
@@ -77,7 +79,7 @@ public class JPAQuery {
             }
 
             // 7. Obtener todas las películas que tienen un personaje interpretado por un actor con un nombre específico (por ejemplo, “Tom Hanks”)
-            List<Pelicula> peliculas7= em.createQuery(
+            List<Pelicula> peliculas7 = em.createQuery(
                     "SELECT pp.pelicula " +
                             "FROM PeliculaPersonaxe pp " +
                             "WHERE pp.ocupacion.ocupacion= :ocupacion " +
@@ -89,6 +91,34 @@ public class JPAQuery {
             }
 
             // 8. Obtener todas las películas que tienen un género específico y que fueron producidas en un año específico (por ejemplo, “Acción” y 2005)
+            List<Pelicula> peliculas8 = em.createQuery(
+                            "SELECT p " +
+                                    "FROM Pelicula p WHERE p.xenero = :xenero " +
+                                    "AND p.anoFin = :anoFin", Pelicula.class
+                    ).setParameter("xenero", Xenero.Comedia)
+                    .setParameter("anoFin", 1999)
+                    .getResultList();
+
+            for (Pelicula pelicula : peliculas8) {
+                System.out.println(pelicula);
+            }
+
+            // 9. Obtener todas las películas que tienen un personaje interpretado por un actor de un género específico (por ejemplo, “Mujer”).
+            List<Pelicula> peliculas9 = em.createQuery(
+                    "SELECT DISTINCT pp.pelicula " +
+                            "FROM PeliculaPersonaxe pp " +
+                            "WHERE pp.personaxe.sexo = :sexo", Pelicula.class
+            ).setParameter("sexo", "mujer").getResultList();
+
+            for (Pelicula pelicula : peliculas9) {
+                System.out.println(pelicula);
+            }
+
+            // 10. Obtener todas las películas que tienen un personaje interpretado por un actor que nació en un país específico y que tienen una duración mayor a 100 minutos.
+//            List<Pelicula> peliculas10 = em.createQuery(
+//                    "SELECT DISTINCT "
+//            )
+
 
         } catch (Exception e) {
             e.printStackTrace();
