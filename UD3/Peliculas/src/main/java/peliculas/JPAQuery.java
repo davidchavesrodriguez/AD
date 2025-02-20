@@ -115,9 +115,29 @@ public class JPAQuery {
             }
 
             // 10. Obtener todas las películas que tienen un personaje interpretado por un actor que nació en un país específico y que tienen una duración mayor a 100 minutos.
-//            List<Pelicula> peliculas10 = em.createQuery(
-//                    "SELECT DISTINCT "
-//            )
+            List<Pelicula> peliculas10 = em.createQuery(
+                            "SELECT DISTINCT pp.pelicula " +
+                                    "FROM PeliculaPersonaxe pp " +
+                                    "WHERE pp.personaxe.paisNacemento = :pais " +
+                                    "AND pp.pelicula.duracion > :duracion", Pelicula.class
+                    ).setParameter("pais", "España").setParameter("duracion", 100)
+                    .getResultList();
+
+            for (Pelicula pelicula : peliculas10) {
+                System.out.println(pelicula);
+            }
+
+
+            // 11. Devolver todos los países que no tienen películas asociadas, puedes usar una consulta JPQL que utilice una subconsulta o un LEFT JOIN con una condición IS NULL.
+            List<Pais> paisesSinPeliculas = em.createQuery(
+                    "SELECT p FROM Pais p LEFT JOIN Pelicula pel ON p.pais = pel.pais.pais WHERE pel.idPelicula IS NULL",
+                    Pais.class
+            ).getResultList();
+
+
+            for (Pais pelicula : paisesSinPeliculas) {
+                System.out.println(pelicula);
+            }
 
 
         } catch (Exception e) {

@@ -1,0 +1,12 @@
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/AppExame.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/dao/DAO.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/dao/GameConnectionManager.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/dao/GeneroDAO.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/dao/JuegoDAO.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/dao/PlataformaDAO.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/files/GameDownloader.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/model/Genero.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/model/Imagen.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/model/Juego.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/model/Plataforma.java
+/home/sanclemente.local/a22davidcr/Escritorio/AD/freetogame/src/main/java/local/sanclemente/ad/exame/model/RequisitosSistema.java
