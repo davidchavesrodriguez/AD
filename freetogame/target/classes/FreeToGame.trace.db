@@ -1,0 +1,11 @@
+2025-02-23 12:48:55.534248+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "description" no encontrada
+Column "description" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at local.sanclemente.ad.exame.GameDownloader.downloadDescription(GameDownloader.java:77)
+	at local.sanclemente.ad.exame.GameDownloader.main(GameDownloader.java:22)

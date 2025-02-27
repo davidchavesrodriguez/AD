@@ -38,6 +38,12 @@ public class Imagen {
     public Imagen() {
     }
 
+    public Imagen(Long idImagen, String url) {
+        this.idImagen = idImagen;
+        this.url = url;
+    }
+
+
     public Imagen(Long idImagen, Juego juego, String url) {
         this.idImagen = idImagen;
         this.juego = juego;
@@ -61,6 +67,9 @@ public class Imagen {
         this.juego = juego;
         this.url = url;
         this.imagen = imagen;
+    }
+
+    public Imagen(String s) {
     }
 
     public Long getIdImagen() {

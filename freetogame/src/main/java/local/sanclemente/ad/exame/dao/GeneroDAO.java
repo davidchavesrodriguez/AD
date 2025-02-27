@@ -16,17 +16,17 @@ public class GeneroDAO implements DAO<Genero, Integer> {
         this.connection = connection;
     }
 
+
     @Override
     public Genero getById(Integer idGenero) throws SQLException {
-        Genero genero = null;
-        String sql = "SELECT * FROM Genero WHERE idGenero = ?";
+        Genero genero=null;
+        String sql= "SELECT * FROM Genero WHERE idGenero=?";
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try(PreparedStatement preparedStatement= connection.prepareStatement(sql);
+        ResultSet resultSet= preparedStatement.executeQuery()) {
             preparedStatement.setInt(1, idGenero);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    genero = new Genero(resultSet.getInt("idGenero"), resultSet.getString("nombre"));
-                }
+            while (resultSet.next()){
+                genero=new Genero(resultSet.getInt("idGenero"), resultSet.getString("nombre"));
             }
         }
         return genero;
@@ -34,17 +34,17 @@ public class GeneroDAO implements DAO<Genero, Integer> {
 
     @Override
     public List<Genero> getAll() throws SQLException {
-        List<Genero> generos = new ArrayList<>();
-        String sql = "SELECT * FROM Genero";
+        List<Genero> generos= new ArrayList<>();
+        String sql= "SELECT * FROM Genero";
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
-             ResultSet resultSet = preparedStatement.executeQuery()
-        ) {
-            while (resultSet.next()) {
-                generos.add(new Genero(resultSet.getInt("idGenero"), resultSet.getString("nombre")));
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()){
+                Genero genero= new Genero(resultSet.getInt("idGenero"), resultSet.getString("nombre"));
+                generos.add(genero);
             }
         }
 
-        return generos;
+        return List.of();
     }
 }
