@@ -11,9 +11,8 @@ public class SQLToJPQL {
     public static void main(String[] args) {
         // Crear la fábrica y el manager de entidades
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("peliculasPU");
-        EntityManager em = emf.createEntityManager();
 
-        try {
+        try (emf; EntityManager em = emf.createEntityManager()) {
             System.out.println("1- Muestra la película solicitando el id:");
             int identificador = 140;
 
@@ -51,9 +50,6 @@ public class SQLToJPQL {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            em.close();
-            emf.close();
         }
     }
 }
